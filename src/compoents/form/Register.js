@@ -1,23 +1,37 @@
-function Register() {
+import React, {useState} from "react";
+
+function Register(props) {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        console.log(username);
+    }
+
     return (  
         <section>
-            <form>
+            <form onSubmit={handleClick}>
                 <h2>Create an account</h2>
                 <div>
                     <lable htmlFor="username" className="form-lable">Username</lable>
-                    <input type="name" id='inputName' className='form-control' placeholder="Username"/>
+                    <input value={username} name="name" onChange={(e) => setUsername(e.target.value)}type="name" id='inputName' className='form-control' placeholder="Username"/>
                 </div>
                 <div>
                     <label htmlFor='exampleInputEmail1' className='form-label'>Email address</label>
-                    <input type='email' id='inputEmail1' className='form-control' placeholder='youremail@gmail.com' />
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' id='inputEmail1' className='form-control' placeholder='youremail@gmail.com' />
                 </div>
                 <div>
-                    <label htmlFor='exampleInputPassword1' className='form-label'>Password</label>
-                    <input type='password' id='exampleInputPassword1' className='form-control' placeholder='******' />
+                    <label htmlFor='inputPassword' className='form-label'>Password</label>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)}type='password' id='inputPassword' className='form-control' placeholder='******' />
                 </div>
           <button className='btn btn-success'>Login</button>
-          <button>Have an account, Login Here!</button>
+          <button className="link-btn" onClick={() => props.toggleForm('login')}>Already have an account? Login here.</button>
+
             </form>
+
         </section>
     );
 }

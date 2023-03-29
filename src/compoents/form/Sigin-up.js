@@ -1,15 +1,20 @@
+import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
-import Reset from "./Reset";
-import Allergy from "./Allergy";
 
 function SignUp() {
+
+    const [location, setLocation] = useState('register');
+
+    const toggleForm = (formUser) => {
+        setLocation(formUser);
+    }
+
     return (  
         <section>
-            <Register />
-            <Login />
-            <Reset />
-            <Allergy />
+        {
+            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/>
+        }
         </section>
     );
 }
