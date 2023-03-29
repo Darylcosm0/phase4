@@ -1,6 +1,5 @@
 nav {
-    background: rgb(154,255,250);
-    background: linear-gradient(90deg, rgba(154,255,250,1) 100%, rgba(131,58,180,1) 100%, rgba(177,138,82,1) 100%); /* change this to the desired background color */
+    background-color: #ffffff; /* change this to the desired background color */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a box shadow for depth */
     display: flex;
     justify-content: space-between;
@@ -15,7 +14,7 @@ nav {
   }
   
   nav li {
-    margin-left: 64px; /* add some margin between each list item */
+    margin-left: 20px; /* add some margin between each list item */
   }
   
   nav a {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 function Nav() {
@@ -7,7 +7,7 @@ function Nav() {
     <nav>
       <ul>
         <li>
-          <a href="/Home">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
           <a href="/About">about</a>
@@ -16,10 +16,10 @@ function Nav() {
           <a href="/Recipe list">Recipe list</a>
         </li>
         <li>
-          <a href="/New item">New item</a>
+          <a href="/New item">New</a>
         </li>
         <li>
-          <a href="/Profile">Profile</a>
+          <a href="/contact">new</a>
         </li>
       </ul>
     </nav>
