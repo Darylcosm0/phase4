@@ -1,11 +1,15 @@
 import Login from "./Login";
 import Register from "./Register";
+import Reset from "./Reset";
+import Allergy from "./Allergy";
 
 function SignUp() {
     return (  
         <section>
-            <Login />
             <Register />
+            <Login />
+            <Reset />
+            <Allergy />
         </section>
     );
 }

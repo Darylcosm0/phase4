@@ -12,6 +12,7 @@ function Login() {
             <input type='password' id='exampleInputPassword1' className='form-control' placeholder='******' />
           </div>
           <button className='btn btn-success'>Login</button>
+          <button className='btn btn-warning'>Forgor Password</button>
           <button>Don't have an account, Register Here!</button>
         </form>
       </section>
