@@ -3,10 +3,9 @@ import Login from "./Login";
 import Register from "./Register";
 
 
-
 function SignUp() {
-
     const [location, setLocation] = useState('register');
+
 
     const toggleForm = (locationUser) => {
         setLocation(locationUser);
@@ -15,20 +14,8 @@ function SignUp() {
 
     return (  
         <section>
-        {
-            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/> 
-
-    const toggleForm = (formUser) => {
-        setLocation(formUser);
-    }
-    return (
-        <section>
-        {
-            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/>
-
-        }
+            {location === 'register' ? <Register toggleForm={toggleForm}/> : location === 'login' ? <Login toggleForm={toggleForm}/> : null}
         </section>
     );
 }
-
 export default SignUp;
