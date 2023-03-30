@@ -6,14 +6,14 @@ function Register(props) {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
-    const handleClick = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
         console.log(username);
     }
 
     return (  
         <section>
-            <form onSubmit={handleClick}>
+            <form onSubmit={handleChange}>
                 <h2>Create an account</h2>
                 <div>
                     <lable htmlFor="username" className="form-lable">Username</lable>

@@ -1,12 +1,9 @@
-import Create from "../Create";
-
-function recipeList() {
+const New = () => {
     return (  
         <section>
-            <h1>Recipe List</h1>
-            <Create />
+            <h1 className="content">Add a new recipe</h1>
         </section>
     );
 }
-
-export default recipeList;
+ 
+export default New;

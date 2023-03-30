@@ -13,7 +13,7 @@ function SignUp() {
     return (  
         <section>
         {
-            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/>
+            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/> 
         }
         </section>
     );

@@ -1,9 +1,9 @@
-function Profile() {
+const Profile = () => {
     return (  
         <section>
-            <h1>Profile</h1>
+            <h1 className="content">Profile</h1>
         </section>
     );
 }
-
-export default Profi;
+ 
+export default Profile;
