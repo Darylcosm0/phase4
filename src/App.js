@@ -1,12 +1,17 @@
 import './App.css';
-import Nav from "./compoents/navbar/Nav"
+import Navigation from './compoents/navbar/Navigation';
+import SignUp from './compoents/form/Sigin-up';
+import Reset from './compoents/form/Reset'
+import Allergy from './compoents/form/Allergy';
 
 
 function App() {
   return (
     <div>
-      <Nav />
-      <h1>Welcome to my React App!</h1>
+      <SignUp />
+      <Reset />
+      <Allergy />
+      <Navigation />
     </div>
   );
 }
