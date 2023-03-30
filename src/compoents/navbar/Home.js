@@ -1,3 +1,4 @@
+
 function Home() {
   return (  
       <section>
@@ -7,3 +8,11 @@ function Home() {
 }
 
 export default Home;
+
+function displayHome() {
+    console.log('Welcome to the home page!');
+  }
+  
+  module.exports = displayHome;
+  
+

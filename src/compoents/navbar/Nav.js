@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css';
@@ -25,6 +26,30 @@ function Nav() {
         <Link to='/profile' className="profile">
           <li>Profile</li>
         </Link>
+
+import React from "react";
+
+
+function Nav() {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <a href="/Home">Home</a>
+        </li>
+        <li>
+          <a href="/About">about</a>
+        </li>
+        <li>
+          <a href="/Recipe list">Recipe list</a>
+        </li>
+        <li>
+          <a href="/New item">New item</a>
+        </li>
+        <li>
+          <a href="/Profile">Profile</a>
+        </li>
+
       </ul>
     </nav>
   );

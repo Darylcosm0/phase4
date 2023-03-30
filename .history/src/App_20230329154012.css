@@ -1,0 +1,31 @@
+nav {
+   background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(9,2,2,1) 53%, rgba(252,176,69,1) 100%); /* change this to the desired background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a box shadow for depth */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; /* add some padding to the navbar */
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin-left: 64px; /* add some margin between each list item */
+  }
+  
+  nav a {
+    color: #333333; /* change this to the desired text color */
+    font-weight: bold; /* make the text bold */
+    text-decoration: none; /* remove the default underline */
+    transition: color 0.2s ease-in-out; /* add a smooth transition on hover */
+  }
+  
+  nav a:hover {
+    color: #666666; /* change the text color on hover */
+  }
+  
