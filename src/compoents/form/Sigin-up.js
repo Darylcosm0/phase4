@@ -4,8 +4,8 @@ import Register from "./Register";
 
 
 function SignUp() {
-
     const [location, setLocation] = useState('register');
+
 
     const toggleForm = (locationUser) => {
         setLocation(locationUser);
@@ -18,5 +18,4 @@ function SignUp() {
         </section>
     );
 }
-
 export default SignUp;
