@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
-import Nav from '../navbar/Nav';
 import Allergy from "./Allergy"; // Import statement for the Allergy component
 
 function SignUp() {
