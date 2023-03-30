@@ -5,14 +5,14 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-   const handleClick = (e) => {
+   const handleChange = (e) => {
         e.preventDefault();
         console.log(email);
     }
 
     return (  
       <section>
-        <form onSubmit={handleClick}>
+        <form onSubmit={handleChange}>
           <h2>Welcome Back</h2>
           <div>
             <label htmlFor='inputEmail' className='form-label'>Email address</label>
