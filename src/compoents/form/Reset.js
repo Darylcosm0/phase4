@@ -13,4 +13,5 @@ function Reset() {
         </section>
     );
 }
+
 export default Reset;

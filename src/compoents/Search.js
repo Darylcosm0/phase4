@@ -1,16 +1,19 @@
-const Search = () => {
-    return (  
-        <section>
-            <form className="d-flex" role="search">
-                <input className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
-                <button type="submit" className="btn btn-outline-success">Search</button>
-            </form>
-        </section>
+import React from 'react';
+import { useState } from 'react';
+
+function Search(props) {
+    const [search,setSearch] = useState({search:""})
+    useEffect(()=>{
+     axios.get("")
+    },[search])
+    return (
+      <form>
+        <input type="text"
+        onChange={(e)=>{
+         setSearch({search:e.target.value})
+        }}></input>
+      </form>
     );
 }
- 
+
 export default Search;

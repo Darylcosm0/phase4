@@ -1,12 +1,12 @@
-import Search from "../Search";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Recipes() {
-    return (  
-        <section>
-            <Search />
-            <h1 className="content">Recipes</h1>
-        </section>
+function listRecipe({recipes}) {
+    return (
+     recipes.map((recipe)=>{
+      <Link to=""><div>{recipe.name}</div></Link>
+     })
     );
 }
 
-export default Recipes;
+export default listRecipe;
