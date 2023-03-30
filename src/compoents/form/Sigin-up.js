@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
-import Nav from '../navbar/Nav';
-import Allergy from "./Allergy"; // Import statement for the Allergy component
+import Allergy from "./Allergy";
+import Nav from '../navbar/Nav'
 
 function SignUp() {
 
@@ -21,9 +21,7 @@ function SignUp() {
         <section>
         {
             location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/>
-        }
-        {
-            info === 'allergy'? <Allergy changeForm={changeForm}/> : null // Default value for info state variable
+            info ==='allergy'? <Allergy changeForm={changeForm}/> 
         }
         </section>
     );
