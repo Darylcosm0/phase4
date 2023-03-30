@@ -1,4 +1,4 @@
-function Recipes() {
+function About() {
     return (  
         <section>
             <h1 className="content">Recipes</h1>
@@ -6,4 +6,4 @@ function Recipes() {
     );
 }
 
-export default Recipes;
+export default About;
