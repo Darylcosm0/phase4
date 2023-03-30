@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
 import Nav from "./Nav";
 import Home from "./Home";
 import About from "./About";
@@ -11,24 +11,25 @@ function Navigation() {
     return (  
         <section>
             <Router>
+               
                 <Nav />
-                <Switch>
-                    <Route path="/" componet={Home} exact>
-                        <Home />
+                {/* <Switch> */}
+                <Routes>
+                    <Route path="/" element={<Home />} exact>
                     </Route>
-                    <Route path="/about" component={About} exact>
-                        <About />
+                    <Route path="/about" element={<About />} exact>
+                      
                     </Route>
-                    <Route path="/list" component={Recipes} exact>
-                        <Recipes />
+                    <Route path="/list" element={<Recipes />} exact>
+                        
                     </Route>
-                    <Route path="/new" component={New} exact>
-                        <New />
+                    <Route path="/new" element={<New />}exact></Route>
+                    <Route path="/profile" element={<Profile />} exact>
+                        
                     </Route>
-                    <Route path="/profile" component={Profile} exact>
-                        <Profile />
-                    </Route>
-                </Switch>
+                    </Routes>
+                {/* </Switch> */}
+              
             </Router>
         </section>
     );
