@@ -19,7 +19,7 @@ function Nav() {
         <Link to='/list' className="recipes">
           <li>Recipe list</li>
         </Link>
-        <Link to='/new' className="login">
+        <Link to='/new' className="new">
           <li>New Item</li>
         </Link>
         <Link to='/profile' className="profile">

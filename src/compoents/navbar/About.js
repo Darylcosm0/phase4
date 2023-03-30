@@ -1,7 +1,7 @@
 function About() {
     return (  
         <section>
-            <h1 className="content">Recipes</h1>
+            <h1 className="content">About</h1>
         </section>
     );
 }
