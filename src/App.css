@@ -1,11 +1,11 @@
-nav {
+/* nav {
   background: rgb(154,255,250);
-  background: linear-gradient(90deg, rgb(17, 13, 253) 100%, rgba(131,58,180,1) 100%, rgba(177,138,82,1) 100%); /* change this to the desired background color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* add a box shadow for depth */
+  background: linear-gradient(90deg, rgb(17, 13, 253) 100%, rgba(131,58,180,1) 100%, rgba(177,138,82,1) 100%); change this to the desired background color 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); add a box shadow for depth 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* add some padding to the navbar */
+  padding: 1rem 2rem;  add some padding to the navbar 
   position: fixed;
   top: 0;
   left: 0;
@@ -21,26 +21,28 @@ nav ul {
 }
 
 nav li {
-  margin-left: 2rem; /* add some margin between each list item */
+  margin-left: 2rem;  add some margin between each list item 
 }
 
 nav a {
-  color: #fff; /* change this to the desired text color */
-  font-weight: bold; /* make the text bold */
-  text-decoration: none; /* remove the default underline */
-  transition: color 0.2s ease-in-out; /* add a smooth transition on hover */
+  color: #fff;  change this to the desired text color 
+  font-weight: bold;  make the text bold 
+  text-decoration: none;  remove the default underline 
+  transition: color 0.2s ease-in-out;  add a smooth transition on hover 
 }
 
 nav a:hover {
-  color: #e6e6e6; /* change the text color on hover */
+  color: #e6e6e6;  change the text color on hover 
 }
+*/
 
 section {
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 6rem); /* subtract the navbar height */
-}
+  height: calc(100vh - 6rem); /*subtract the navbar height*/ 
+} 
+
 
 form {
   display: flex;

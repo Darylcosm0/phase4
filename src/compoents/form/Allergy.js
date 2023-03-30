@@ -1,33 +1,26 @@
+function Allergy() {
 
-import { useState } from "react";
-import Login from "./Login";
-import Register from "./Register";
-import Allergy from "./Allergy"; // Import statement for the Allergy component
-
-function SignUp() {
-
-    const [location, setLocation] = useState('register');
-    const [info, setInfo] = useState('allergy');
-
-    const toggleForm = (formUser) => {
-        setLocation(formUser);
-    }
-
-    const changeForm = (userAllergy) => {
-        setInfo(userAllergy);
-    }
+    //button logic
 
     return (  
         <section>
-        {
-            location ==='register'? <Register toggleForm={toggleForm}/> : <Login toggleForm={toggleForm}/>
-        }
-        {
-            info === 'allergy'? <Allergy changeForm={changeForm}/> : null // Default value for info state variable
-        }
+            <form>
+                <div className="mb-3">
+                 <h3>Final Step of Getting Started</h3>
+                    <p>List your food allergies or restrictions, if non mark the box and submit the form</p>
+                    <label htmlFor="allergy" className="form-label">
+                        Your Allergy
+                    </label>
+                    <input type="name" className="form-control" id="inputAllergy" placeholder=""></input>
+                </div>
+                <div className="mb-3 form-check">
+                        <input type="checkbox" className="form-check-input" id="inputAll"></input>
+                        <label className="form-check-label" htmlFor="inputAll">skip</label>
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
         </section>
     );
 }
 
-export default SignUp;
-
+export default Allergy;
