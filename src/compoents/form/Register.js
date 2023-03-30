@@ -27,9 +27,8 @@ function Register(props) {
                     <label htmlFor='inputPassword' className='form-label'>Password</label>
                     <input value={password} onChange={(e) => setPassword(e.target.value)}type='password' id='inputPassword' className='form-control' placeholder='******' />
                 </div>
-          <button className='btn btn-success'>Login</button>
-          <button className="link-btn" onClick={() => props.toggleForm('login')}>Already have an account? Login here.</button>
-
+                    <button className='btn btn-success'>Login</button>
+                    <button className="link-btn" onClick={() => props.toggleForm('login')}>Already have an account? Login here.</button>
             </form>
 
         </section>
