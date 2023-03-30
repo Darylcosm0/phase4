@@ -1,5 +1,10 @@
 import './App.css';
 import Nav from "./compoents/navbar/Nav"
+import Home from "./compoents/navbar/Home"
+import About from "./compoents/navbar/About"
+import Recipelist from "./compoents/navbar/listRecipe"
+import newItem from "./compoents/navbar/newRecipe"
+import Profile from "./compoents/";
 import SignUp from './compoents/form/Sigin-up';
 import Reset from './compoents/form/Reset';
 function App() {
@@ -12,4 +17,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

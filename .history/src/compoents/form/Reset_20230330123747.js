@@ -1,5 +1,5 @@
 function Reset() {
-    return (
+    return (  
         <section>
             <h2>Reset Password</h2>
             <lable htmlFor='inputEmail' className='form-lable'>Email</lable>
@@ -7,4 +7,5 @@ function Reset() {
         </section>
     );
 }
+
 export default Reset;

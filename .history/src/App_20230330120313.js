@@ -1,5 +1,6 @@
 import './App.css';
 import Nav from "./compoents/navbar/Nav"
+import Home from "./compoents/
 import SignUp from './compoents/form/Sigin-up';
 import Reset from './compoents/form/Reset';
 function App() {
@@ -12,4 +13,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
