@@ -8,8 +8,6 @@ function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
    const store = useStore(userStore)
-   console.log(email)
-   console.log(password)
    const handleSubmit = (e) => {
         e.preventDefault();
         axios.post("https://phase-4-project-recipes-backend.onrender.com/login",{

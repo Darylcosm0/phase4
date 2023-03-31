@@ -3,7 +3,7 @@ import Create from "../Create";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useStore } from "zustand";
-import { recipesStore } from "../../data/RecipesStore";
+import { recipesStore, userStore } from "../../data/RecipesStore";
 
 function NewRecipe(){
         function handleSubmit(e){
@@ -15,14 +15,18 @@ function NewRecipe(){
             )
                 }
     const store = useStore(recipesStore)
+    console.log(store)
+    const loggedUserStore = useStore(userStore) 
+    let currentUser = loggedUserStore.user.id
     const [recipeData,setRecipeData] = useState({
     title:"",
     instructions:"",
     description:"",
     cuisine:"",
     recipe_image:"",
-    user_id:null
+    user_id:currentUser
     })
+   
   return (
     // <section className="content">
     //     <Create />
