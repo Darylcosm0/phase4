@@ -6,6 +6,7 @@ import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
 import axios from 'axios';
 import { userStore } from '../../data/RecipesStore';
+import { singleRecipeStore } from '../../data/RecipesStore';
 
 function UpdateRecipe({recipe}){
         function handleSubmit(e){
@@ -14,10 +15,15 @@ function UpdateRecipe({recipe}){
             axios.put(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData).then(
                 axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
                     r => store.changeRecipes(r.data)
-                )
+                ),
+                axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`).then(
+                  r => singleStore.changeSingleRecipe(r.data)
+              )
+
             )
                 }
     const store = useStore(recipesStore)
+    const singleStore = useStore(singleRecipeStore)
     const currentUser = useStore(userStore)
     const [recipeData,setRecipeData] = useState({
     title:recipe.title,
