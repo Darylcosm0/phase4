@@ -47,22 +47,15 @@ li {
 .nav-link li {
   font-size: 20px;
   font-weight: 500;
-  color: #000000;
+  color: #000;
   margin: 0 16px;
   cursor: pointer;
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  transform: scale(0.9);
-  transition: transform 0.2s ease-in-out;
-  transition-property: width;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
-  transition-direction: left;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 
 .nav-link li:hover {
   color: #c50007;
-  transform: scale(1.1);
 }
 
 .content {
