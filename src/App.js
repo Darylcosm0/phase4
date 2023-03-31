@@ -6,11 +6,13 @@ import Nav from "./compoents/navbar/Nav"
 import AllRecipes from './compoents/components/AllRecipes';
 import UserRecipes from './compoents/components/UserRecipes';
 import SingleRecipeAll from './compoents/components/SingleRecipeAll';
+import SingleRecipeCrud from './compoents/components/SingleRecipeCrud';
 
 
 function App() {
   return (
     <div>
+      <SingleRecipeCrud/>
       <SingleRecipeAll/>
       <AllRecipes/>
       <UserRecipes/>

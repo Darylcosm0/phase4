@@ -3,16 +3,19 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 
-function Search(props) {
-    const [search,setSearch] = useState({search:""})
-    useEffect(()=>{
-     axios.get("")
-    },[search])
+function Search({store}) {
+   
+   
     return (
       <form>
         <input type="text"
+        placeholder='Search for a recipe name or cuisine'
         onChange={(e)=>{
-         setSearch({search:e.target.value})
+         axios.post("https://phase-4-project-recipes-backend.onrender.com/search",{
+          search:e.target.value
+         }).then(
+          r => console.log(r.data)
+         )
         }}></input>
       </form>
     );
