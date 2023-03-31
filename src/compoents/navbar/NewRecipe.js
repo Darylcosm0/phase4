@@ -3,11 +3,12 @@ import Create from "../Create";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useStore } from "zustand";
-import { recipesStore } from "../../data/RecipesStore";
+import { recipesStore, userStore } from "../../data/RecipesStore";
 
 function NewRecipe(){
         function handleSubmit(e){
             e.preventDefault()
+            setRecipeData({...recipeData, user_id:loggedUserStore.user.id})
             axios.post("https://phase-4-project-recipes-backend.onrender.com/recipes",recipeData).then(
                 axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
                     r => store.changeRecipes(r.data)
@@ -15,6 +16,7 @@ function NewRecipe(){
             )
                 }
     const store = useStore(recipesStore)
+    const loggedUserStore = useStore(userStore) 
     const [recipeData,setRecipeData] = useState({
     title:"",
     instructions:"",
@@ -23,6 +25,7 @@ function NewRecipe(){
     recipe_image:"",
     user_id:null
     })
+   
   return (
     // <section className="content">
     //     <Create />

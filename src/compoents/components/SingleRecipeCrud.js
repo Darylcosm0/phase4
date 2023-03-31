@@ -14,31 +14,33 @@ import AddLabel from '../form/AddLabel';
 import RemoveLabel from '../subcomponents/RemoveLabel';
 import TotalCalories from './TotalCalories';
 import UpdateRecipe from '../form/UpdateRecipe';
+import { singleRecipeStore } from '../../data/RecipesStore';
+import { useStore } from 'zustand';
 
 
 function SingleRecipeCrud(props) {
-    const [recipe,setRecipe] = useState({})
+    const store = useStore(singleRecipeStore)
     useEffect(() =>{
-    axios.get("http://127.0.0.1:3000/recipes/1").then(
-    r => setRecipe(r.data)
+    axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/1").then(
+    r => store.changeSingleRecipe(r.data)
     )
     },[])
     return (
         <div>
-            <h3>{recipe.title}</h3>
+            <h3>{store.recipe.title}</h3>
             <RecipeWarning/>
             <RecipeLabels/>
-            <img src={recipe.recipe_image}/>
-            <p>{recipe.description}</p>
+            <img src={store.recipe.recipe_image}/>
+            <p>{store.recipe.description}</p>
             <RecipeIngredients/>
-            <p>{recipe.instructions}</p>
-            <p>{recipe.cuisine}</p>
+            <p>{store.recipe.instructions}</p>
+            <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
             <div>
                 <RecipeReviews/>
                 <div>
                     <NewRecipe/>
-                    <UpdateRecipe recipe={recipe}/>
+                    <UpdateRecipe recipe={store.recipe}/>
                     <DeleteRecipe/>
                 </div>
                 <div>
