@@ -7,13 +7,13 @@ import RecipeLabels from './RecipeLabels';
 import RecipeIngredients from './RecipeIngredients';
 import RecipeReviews from '../subcomponents/RecipeReviews';
 import NewRecipe from '../navbar/NewRecipe';
-import UpdateRecipe from '../form/UpdateRecipe';
 import DeleteRecipe from '../subcomponents/DeleteRecipe';
 import AddIngredient from '../form/AddIngredient';
 import RemoveIngredient from '../subcomponents/RemoveIngredient';
 import AddLabel from '../form/AddLabel';
 import RemoveLabel from '../subcomponents/RemoveLabel';
 import TotalCalories from './TotalCalories';
+import UpdateRecipe from '../form/UpdateRecipe';
 
 
 function SingleRecipeCrud(props) {
@@ -38,7 +38,7 @@ function SingleRecipeCrud(props) {
                 <RecipeReviews/>
                 <div>
                     <NewRecipe/>
-                    <UpdateRecipe/>
+                    <UpdateRecipe recipe={recipe}/>
                     <DeleteRecipe/>
                 </div>
                 <div>

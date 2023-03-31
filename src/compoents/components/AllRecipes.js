@@ -5,18 +5,20 @@ import ListRecipe from "../navbar/ListRecipe";
 import axios from "axios";
 import Search from "../Search";
 import Sort from "../form/Sort";
+import { useStore } from "zustand";
+import { recipesStore} from "../../data/RecipesStore";
 
 function AllRecipes(props) {
-  const [recipes, setRecipes] = useState([]);
+  const store = useStore(recipesStore)
   useEffect(() => {
-    axios.get("http://127.0.0.1:3000/recipes").then((r) => setRecipes(r.data))
+    axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then((r) => store.changeRecipes(r.data))
   }, [])
   return (
     <>
-      <Search/>
-      <Sort/>
+      <Search store={store}/>
+      <Sort store={store}/>
       <h1>All recipes</h1>
-      <ListRecipe recipes={recipes} />
+      <ListRecipe recipes={store.recipes} />
     </>
   );
 }

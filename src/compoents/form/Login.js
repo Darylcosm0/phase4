@@ -1,18 +1,27 @@
 import React, {useState} from "react";
+import { useStore } from "zustand";
+import { userStore } from "../../data/RecipesStore";
+import axios from "axios";
 
 
 function Login(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-   const handleChange = (e) => {
+   const store = useStore(userStore)
+   console.log(email)
+   console.log(password)
+   const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        axios.post("https://phase-4-project-recipes-backend.onrender.com/login",{
+        email:email,
+        password:password
+        }).then(r => store.changeUser(r.data.user))
     }
+    console.log(store)
 
     return (  
       <section>
-        <form onSubmit={handleChange}>
+        <form onSubmit={handleSubmit}>
           <h2>Welcome Back</h2>
           <div>
             <label htmlFor='inputEmail' className='form-label'>Email address</label>
