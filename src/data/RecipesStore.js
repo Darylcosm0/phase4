@@ -11,4 +11,17 @@ changeRecipes:(recipes) =>{
 
 const recipesStore = create(recipesData)
 
+
+const userData = (set) => ({
+    user:{},
+    changeUser:(user) =>{
+        set((state) => ({
+            user:user
+        }))
+    }
+    })
+    
+    const userStore = create(recipesData)
+
 export  {recipesStore};
+export {userStore};
