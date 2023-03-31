@@ -8,6 +8,7 @@ import { recipesStore, userStore } from "../../data/RecipesStore";
 function NewRecipe(){
         function handleSubmit(e){
             e.preventDefault()
+            setRecipeData({...recipeData,user_id:loggedUserStore.user.id})
             axios.post("https://phase-4-project-recipes-backend.onrender.com/recipes",recipeData).then(
                 axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
                     r => store.changeRecipes(r.data)
@@ -15,16 +16,14 @@ function NewRecipe(){
             )
                 }
     const store = useStore(recipesStore)
-    console.log(store)
     const loggedUserStore = useStore(userStore) 
-    let currentUser = loggedUserStore.user.id
     const [recipeData,setRecipeData] = useState({
     title:"",
     instructions:"",
     description:"",
     cuisine:"",
     recipe_image:"",
-    user_id:currentUser
+    user_id:null
     })
    
   return (

@@ -5,26 +5,29 @@ import { useEffect } from "react";
 import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
 import axios from 'axios';
+import { userStore } from '../../data/RecipesStore';
 
 function UpdateRecipe({recipe}){
         function handleSubmit(e){
             e.preventDefault()
-           
-            axios.patch(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData).then(
+           setRecipeData({...recipeData,user_id:currentUser.user.id})
+            axios.put(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData).then(
                 axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
                     r => store.changeRecipes(r.data)
                 )
             )
                 }
     const store = useStore(recipesStore)
+    const currentUser = useStore(userStore)
     const [recipeData,setRecipeData] = useState({
-    title:"",
-    instructions:"",
-    description:"",
-    cuisine:"",
-    recipe_image:"",
+    title:recipe.title,
+    instructions:recipe.instructions,
+    description:recipe.description,
+    cuisine:recipe.cuisine,
+    recipe_image:recipe.image,
     user_id:null
     })
+    console.log(recipeData)
   return (
     // <section className="content">
     //     <Create />

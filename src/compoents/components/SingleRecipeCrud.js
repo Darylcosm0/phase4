@@ -19,7 +19,7 @@ import UpdateRecipe from '../form/UpdateRecipe';
 function SingleRecipeCrud(props) {
     const [recipe,setRecipe] = useState({})
     useEffect(() =>{
-    axios.get("http://127.0.0.1:3000/recipes/1").then(
+    axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/1").then(
     r => setRecipe(r.data)
     )
     },[])
