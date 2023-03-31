@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import listRecipe from '../navbar/listRecipe';
+import listRecipe from '../navbar/ListRecipe';
+import axios from 'axios';
 
 
 function UserRecipes(props) {
