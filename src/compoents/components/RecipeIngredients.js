@@ -1,11 +1,12 @@
 import React from 'react';
 
-function RecipeLabels({labels}) {
+function RecipeIngredients({ingredients}) {
     return (
-      ingredients.map((label)=>{
-        <div style={{color:`${label.color}`}}>{label.name}</div>
-      })
+      // ingredients.map((ingredient)=>{
+      //   <div style={{color:`${ingredient.color}`}}>{ingredient.name}</div>
+      // })
+      "Recipe Ingredients"
     );
 }
 
-export default RecipeLabels;
+export default RecipeIngredients;

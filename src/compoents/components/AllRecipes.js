@@ -9,7 +9,6 @@ function AllRecipes(props) {
   useEffect(() => {
     axios.get("http://127.0.0.1:3000/recipes").then((r) => setRecipes(r.data))
   }, [])
-  console.log(recipes);
   return (
     <>
       <h1>All recipes</h1>

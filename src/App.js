@@ -5,11 +5,13 @@ import Reset from './compoents/form/Reset';
 import Nav from "./compoents/navbar/Nav"
 import AllRecipes from './compoents/components/AllRecipes';
 import UserRecipes from './compoents/components/UserRecipes';
+import SingleRecipeAll from './compoents/components/SingleRecipeAll';
 
 
 function App() {
   return (
     <div>
+      <SingleRecipeAll/>
       <AllRecipes/>
       <UserRecipes/>
       <SignUp />
