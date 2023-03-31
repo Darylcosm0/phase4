@@ -21,7 +21,7 @@ const userData = (set) => ({
     }
     })
     
-    const userStore = create(recipesData)
+    const userStore = create(userData)
 
 export  {recipesStore};
 export {userStore};

@@ -15,8 +15,9 @@ function Login(props) {
         axios.post("https://phase-4-project-recipes-backend.onrender.com/login",{
         email:email,
         password:password
-        }).then(r => store.changeUser(r.data))
+        }).then(r => store.changeUser(r.data.user))
     }
+    console.log(store)
 
     return (  
       <section>
