@@ -47,7 +47,7 @@ li {
 .nav-link li {
   font-size: 20px;
   font-weight: 500;
-  color: #000000;
+  color: #000;
   margin: 0 16px;
   cursor: pointer;
   transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
