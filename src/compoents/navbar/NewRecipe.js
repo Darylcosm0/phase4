@@ -1,5 +1,5 @@
 import Create from "../Create";
-const New = () => {
+const NewRecipe = () => {
     return (  
         <section className="content">
             <Create />
@@ -7,4 +7,4 @@ const New = () => {
     );
 }
  
-export default New;
+export default NewRecipe;

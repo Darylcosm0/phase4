@@ -8,6 +8,7 @@ import RecipeIngredients from './RecipeIngredients';
 import RecipeReviews from '../subcomponents/RecipeReviews';
 import AddReview from '../form/AddReview';
 import RemoveReview from '../subcomponents/RemoveReview';
+import TotalCalories from './TotalCalories';
 
 function SingleRecipeAll(props) {
     const [recipe,setRecipe] = useState({})
@@ -20,11 +21,13 @@ function SingleRecipeAll(props) {
         <div>
             <h3>{recipe.title}</h3>
             <RecipeWarning/>
+            <RecipeLabels/>
             <img src={recipe.recipe_image}/>
             <p>{recipe.description}</p>
             <RecipeIngredients/>
             <p>{recipe.instructions}</p>
             <p>{recipe.cuisine}</p>
+            <TotalCalories/>
             <div>
                 <RecipeReviews/>
                 <div>

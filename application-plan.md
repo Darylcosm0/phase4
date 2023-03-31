@@ -69,6 +69,7 @@ This is an application geared towards creating recipes and sharing them, with a 
  - render **RecipeIngredients**
  - instructions
  - cuisine
+ - render **TotalCalories**
 
  -render **RecipeReviews**
 
@@ -91,6 +92,7 @@ This is an application geared towards creating recipes and sharing them, with a 
     - render **RecipeIngredients**
     - instructions
     - cuisine
+    - render **TotalCalories**
 
 - render **RecipeReviews**
 

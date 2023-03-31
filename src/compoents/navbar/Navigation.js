@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import About from "./About";
 import Recipes from "./ListRecipe";
-import New from "./newRecipe";
+import New from "./NewRecipe";
 import Profile from "./Profile";
 
 function Navigation() {
