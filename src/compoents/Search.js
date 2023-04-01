@@ -8,7 +8,7 @@ const Search = () => {
                     aria-label="Search"
                 />
                 <button type="submit" className="btn btn-outline-success">Search</button>
-            </form>git 
+            </form>
         </section>
     );
 }
