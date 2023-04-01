@@ -33,7 +33,7 @@ function SingleRecipeAll(props) {
             <div>
                 <RecipeReviews/>
                 <div>
-                    <AddReview/>
+                    <AddReview recipe={store.recipe}/>
                     <RemoveReview/>
                 </div>
             </div>
