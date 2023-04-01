@@ -1,147 +1,114 @@
 {
-  "persons": [
+  "recipes": [
     {
-      "id": 1,
+      "id": 2,
       "username": "admin",
       "email": "kenaa@example.com",
       "password": "admin",
-      "allergy": "eggs"
+      "allergy": "eggs",
+      "favorites": "",
+      "title": "Grannys secret",
+      "cuisine": "African cuisine",
+      "description": "recipe description",
+      "ingredients": "onions, tomato, skumawiki, and salt",
+      "instructions": "recipe instructions",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUBiUsn1Jnvj3PGTwBRrgwwCIbYLRb0wK1sRtTJ9Ff&s",
+      "calories": "33"
     },
     {
-      "details": "eggs",
-      "skip": "",
-      "id": 2
+      "id": 3,
+      "username": "admin",
+      "email": "kenaa@example.com",
+      "password": "admin",
+      "allergy": "eggs",
+      "favorites": "",
+      "title": "Meat",
+      "cuisine": "African cuisine",
+      "description": "recipe description",
+      "ingredients": "meat, soy sauce, beef masala, olive oil and rosemary",
+      "instructions": "recipe instructions",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUBiUsn1Jnvj3PGTwBRrgwwCIbYLRb0wK1sRtTJ9Ff&s",
+      "calories": "11"
     },
     {
-      "details": "eggs",
-      "skip": "",
-      "id": 3
-    },
-    {
-      "details": "eggs",
-      "skip": "",
+      "title": "hjk",
+      "image": "http://localhost:3000/new",
+      "body": "ujhgtrfgv",
+      "category": "American cuisine",
+      "list": "uijhgbv ",
+      "instuction": "uihjgbv ",
+      "unit": "7687",
       "id": 4
     },
     {
-      "details": "eggs",
-      "skip": "",
+      "title": "hjgf",
+      "image": "http://localhost:3000/new",
+      "body": "kjhgv",
+      "category": "",
+      "list": "hjg",
+      "instuction": "hjb",
+      "unit": "4",
       "id": 5
     },
     {
-      "details": "eggs",
-      "skip": "",
+      "title": "hjgf",
+      "image": "http://localhost:3000/new",
+      "body": "kjhgv",
+      "category": "",
+      "list": "hjg",
+      "instuction": "hjb",
+      "unit": "4",
       "id": 6
     },
     {
-      "details": "eggs",
-      "skip": "",
+      "title": "hjgf",
+      "image": "http://localhost:3000/new",
+      "body": "kjhgv",
+      "category": "",
+      "list": "hjg",
+      "instuction": "hjb",
+      "unit": "4",
       "id": 7
     },
     {
-      "details": "",
-      "skip": "",
+      "title": "hjgf",
+      "image": "http://localhost:3000/new",
+      "body": "kjhgv",
+      "category": "",
+      "list": "hjg",
+      "instuction": "hjb",
+      "unit": "4",
       "id": 8
     },
     {
-      "details": "",
-      "skip": "",
+      "title": "yufgcv",
+      "image": "",
+      "body": "yiutfg",
+      "category": "",
+      "list": "uiygf",
+      "instuction": "yutfg",
+      "unit": "876",
       "id": 9
     },
     {
-      "details": "",
+      "title": "uiyjhgf",
+      "image": "http://localhost:3000/new",
+      "body": "uiyghf",
+      "category": "",
+      "list": "uiyhg",
+      "instuction": "ujhbv",
+      "unit": "7765",
       "id": 10
     },
     {
-      "details": "",
+      "title": "jhgfv",
+      "image": "http://localhost:3000/new",
+      "body": "jhgfvc\n\n",
+      "category": "",
+      "list": "jhgvc",
+      "instuction": "jhgv",
+      "unit": "87654",
       "id": 11
-    },
-    {
-      "details": "",
-      "id": 12
-    },
-    {
-      "details": "h",
-      "id": 13
-    },
-    {
-      "details": "",
-      "id": 14
-    },
-    {
-      "details": "eggs",
-      "id": 15
-    },
-    {
-      "details": "",
-      "id": 16
-    },
-    {
-      "details": "eggs",
-      "id": 17
-    },
-    {
-      "details": "eggs",
-      "id": 18
-    },
-    {
-      "details": "eggs",
-      "id": 19
-    },
-    {
-      "details": "eggs",
-      "id": 20
-    },
-    {
-      "details": "eggs",
-      "id": 21
-    },
-    {
-      "details": "eggs",
-      "id": 22
-    },
-    {
-      "details": "eggs",
-      "id": 23
-    },
-    {
-      "details": "eggs",
-      "id": 24
-    },
-    {
-      "details": "eggs",
-      "id": 25
-    },
-    {
-      "details": "",
-      "id": 26
-    },
-    {
-      "details": "eggs",
-      "id": 27
-    },
-    {
-      "details": "eggs",
-      "id": 28
-    },
-    {
-      "details": "eggs",
-      "id": 29
-    },
-    {
-      "details": "eggs",
-      "id": 30
-    },
-    {
-      "details": "eggs",
-      "id": 31
-    },
-    {
-      "details": "",
-      "id": 32
-    },
-    {
-      "details": "",
-      "id": 33
     }
   ]
 }
