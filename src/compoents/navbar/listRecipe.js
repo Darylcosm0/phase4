@@ -2,7 +2,6 @@ import Search from "../Search";
 import RecipeList from './Recipes'
 import useFetch from "../useFetch";
 
-
 function Recipes() {
 
     const {data: recipes, isLoaging, error} = useFetch('http://localhost:8000/recipes')

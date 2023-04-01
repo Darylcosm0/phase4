@@ -6,6 +6,7 @@ import About from "./About";
 import Recipes from "./listRecipe";
 import New from "./newRecipe";
 import Profile from "./Profile";
+import RecipeDetails from "../RecipeDetailes";
 
 function Navigation() {
     return (  
@@ -27,6 +28,9 @@ function Navigation() {
                     </Route>
                     <Route path="/profile" component={Profile} exact>
                         <Profile />
+                    </Route>
+                    <Route path="/detailes/:id" component={RecipeDetails} exact>
+                        <RecipeDetails />
                     </Route>
                 </Switch>
             </Router>
