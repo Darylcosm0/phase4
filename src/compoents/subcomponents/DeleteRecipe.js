@@ -12,7 +12,7 @@ function DeleteRecipe({recipe}) {
             r => store.changeRecipes(r.data)
         )
         )
-       }}></button>
+       }}>Delete Recipe</button>
     );
 }
 

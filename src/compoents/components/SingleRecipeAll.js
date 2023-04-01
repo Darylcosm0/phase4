@@ -16,7 +16,7 @@ function SingleRecipeAll(props) {
     const store = useStore(singleRecipeStore)
     useEffect(() =>{
     axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/1").then(
-    r => store.setSingleRecipe(r.data)
+    r => store.changeSingleRecipe(r.data)
     )
     },[])
     return (
@@ -26,14 +26,14 @@ function SingleRecipeAll(props) {
             <RecipeLabels/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>
-            <RecipeIngredients/>
+            <RecipeIngredients recipe={store.recipe}/>
             <p>{store.recipe.instructions}</p>
             <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
             <div>
                 <RecipeReviews/>
                 <div>
-                    <AddReview/>
+                    <AddReview recipe={store.recipe}/>
                     <RemoveReview/>
                 </div>
             </div>

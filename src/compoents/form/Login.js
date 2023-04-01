@@ -15,8 +15,6 @@ function Login(props) {
         password:password
         }).then(r => store.changeUser(r.data.user))
     }
-    console.log(store)
-
     return (  
       <section>
         <form onSubmit={handleSubmit}>

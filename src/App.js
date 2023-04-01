@@ -8,12 +8,14 @@ import UserRecipes from './compoents/components/UserRecipes';
 import SingleRecipeAll from './compoents/components/SingleRecipeAll';
 import SingleRecipeCrud from './compoents/components/SingleRecipeCrud';
 import Login from './compoents/form/Login';
+import AddAllergy from './compoents/form/AddAllergy';
 
 
 function App() {
   return (
     <div>
       <Login/>
+      <AddAllergy/>
       <SingleRecipeCrud/>
       <SingleRecipeAll/>
       <AllRecipes/>

@@ -5,9 +5,9 @@ function Reset() {
     return (  
         <section>
             <h2>Reset Password</h2>
-            <lable htmlFor='inputEmail' className='form-lable'>Email</lable>
+            <label htmlFor='inputEmail' className='form-label'>Email</label>
             <input type='email' className='form-control'></input>
-            <lable htmlFor='inputPassword' className='form-lable'>New Password</lable>
+            <label htmlFor='inputPassword' className='form-label'>New Password</label>
             <input type='password' className='form-control'></input>
             <button className='btn btn-primary'>Reset Password</button>
         </section>

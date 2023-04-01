@@ -16,7 +16,7 @@ function Register(props) {
             <form onSubmit={handleChange}>
                 <h2>Create an account</h2>
                 <div>
-                    <lable htmlFor="username" className="form-lable">Username</lable>
+                    <label htmlFor="username" className="form-lable">Username</label>
                     <input value={username} name="name" onChange={(e) => setUsername(e.target.value)}type="name" id='inputName' className='form-control' placeholder="Username"/>
                 </div>
                 <div>
