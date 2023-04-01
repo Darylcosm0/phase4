@@ -19,18 +19,21 @@ function AddIngredient({recipe}) {
     calories:undefined, 
     recipe_id:undefined 
     })
+    useEffect(() =>{
+        setIngredient({
+            ...ingredient, recipe_id:recipe["id"]
+         })
+    },[recipe])
 
     function handleSubmit(e){
      e.preventDefault()
-     setIngredient({
-        ...ingredient, recipe_id:recipe.id
-     })
      axios.post(`https://phase-4-project-recipes-backend.onrender.com/ingredients`,ingredient).then(
         axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
             r => store.changeRecipes(r.data)
         ),
         axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`).then(
-          r => singleStore.changeSingleRecipe(r.data)
+        r => singleStore.changeSingleRecipe(r.data),
+        console.log("I've run")
       )
         )
     }

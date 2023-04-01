@@ -16,7 +16,7 @@ function SingleRecipeAll(props) {
     const store = useStore(singleRecipeStore)
     useEffect(() =>{
     axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/1").then(
-    r => store.setSingleRecipe(r.data)
+    r => store.changeSingleRecipe(r.data)
     )
     },[])
     return (

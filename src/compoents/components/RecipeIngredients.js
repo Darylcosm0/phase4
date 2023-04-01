@@ -8,18 +8,16 @@ function RecipeIngredients({ingredients}) {
   useEffect(()=>{
     setCurrentIngredients(ingredients)
   },[ingredients])
-  console.log(currentIngredients)
   if(currentIngredients == undefined){
     return "loading..."
   }
   else{
-    console.log(ingredients)
     return (
         ingredients.map((ingredient)=>{
-        return <>
+        return <div key={ingredient.id}>
         <div>{ingredient.name}</div>
-        <RemoveIngredient/>
-        </>
+        <RemoveIngredient id={ingredient.id}/>
+        </div>
         
       })
     );

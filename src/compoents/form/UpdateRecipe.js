@@ -33,7 +33,6 @@ function UpdateRecipe({recipe}){
     recipe_image:recipe.image,
     user_id:null
     })
-    console.log(recipeData)
   return (
     // <section className="content">
     //     <Create />
