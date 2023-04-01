@@ -1,16 +1,26 @@
-const Search = () => {
-    return (  
-        <section>
-            <form className="d-flex" role="search">
-                <input className="me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
-                <button type="submit" className="btn btn-outline-success">Search</button>
-            </form>
-        </section>
+import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useStore } from 'zustand';
+import { recipesStore } from '../data/RecipesStore';
+
+function Search() {
+   
+   const store = useStore(recipesStore)
+    return (
+      <form>
+        <input type="text"
+        placeholder='Search for a recipe name or cuisine'
+        onChange={(e)=>{
+         axios.post("https://phase-4-project-recipes-backend.onrender.com/search",{
+          search:e.target.value
+         }).then(
+          r => {store.changeRecipes(r.data)}
+         )
+        }}></input>
+      </form>
     );
 }
- 
+
 export default Search;
