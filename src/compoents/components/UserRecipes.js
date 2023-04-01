@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import ListRecipe from '../navbar/ListRecipe';
+import ListRecipe from './ListRecipe';
 import axios from 'axios';
 import Search from '../Search';
 import Sort from '../form/Sort';
