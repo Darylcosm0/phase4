@@ -26,7 +26,7 @@ function SingleRecipeAll(props) {
             <RecipeLabels/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>
-            <RecipeIngredients/>
+            <RecipeIngredients ingredients={store.recipe.ingredients}/>
             <p>{store.recipe.instructions}</p>
             <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
