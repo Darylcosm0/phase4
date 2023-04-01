@@ -29,7 +29,8 @@ function SingleRecipeCrud(props) {
         <div>
             <h3>{store.recipe.title}</h3>
             <RecipeWarning/>
-            <RecipeLabels/>
+            <RecipeLabels recipe={store.recipe}/>
+            <AddLabel recipe_id={store.recipe.id}/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>
             <RecipeIngredients recipe={store.recipe}/>
@@ -45,7 +46,6 @@ function SingleRecipeCrud(props) {
                     <DeleteRecipe recipe={store.recipe}/>
                 </div>
                 <div>
-                    <AddLabel/>
                     <RemoveLabel/>
                 </div>
             </div>

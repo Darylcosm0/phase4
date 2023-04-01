@@ -1,6 +1,7 @@
 import React from 'react';
 
-function RecipeLabels({labels}) {
+function RecipeLabels({recipe}) {
+  console.log(recipe)
     return (
       // labels.map((label)=>{
       //   <div style={{color:`${label.color}`}}>{label.name}</div>
