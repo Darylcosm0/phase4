@@ -38,7 +38,7 @@ function SingleRecipeCrud(props) {
             <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
             <div>
-                <RecipeReviews/>
+                {/* <RecipeReviews/> */}
                 <div>
                     <NewRecipe/>
                     <UpdateRecipe recipe={store.recipe}/>
