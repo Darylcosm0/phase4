@@ -3,11 +3,8 @@ import RemoveReview from "./RemoveReview"
 
 function RecipeReviews({recipe}) {
     if(recipe.reviews !== undefined){
-        console.log(recipe.id)
-        
     return (
      recipe.reviews.map((review)=>{
-        console.log(review.id)
        return <div>
         <p>{review.rating}</p>
         <p>{review.comment}</p>

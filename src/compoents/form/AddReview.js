@@ -28,9 +28,7 @@ function AddReview({recipe}) {
     recipe_id:recipe.id
    })
     axios.post("https://phase-4-project-recipes-backend.onrender.com/reviews",review)
-    console.log(review) 
   }
- console.log(user.user.id)
  
     return (
      <form onSubmit={handleSubmit}>
