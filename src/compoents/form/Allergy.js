@@ -13,7 +13,7 @@ function Allergy() {
       const response = await fetch('http://localhost:8000/persons', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ details }),
+        body: JSON.stringify({  }),
       });
       if (response.ok) {
         history.push('../navbar/Navigation.js');
