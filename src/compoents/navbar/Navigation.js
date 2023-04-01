@@ -3,9 +3,10 @@ import { BrowserRouter as Router,Switch,Route } from "react-router-dom"
 import Nav from "./Nav";
 import Home from "./Home";
 import About from "./About";
-import Recipes from "./ListRecipe";
+import Recipes from "./listRecipe";
 import New from "./NewRecipe";
 import Profile from "./Profile";
+import RecipeDetails from "../RecipeDetailes";
 
 function Navigation() {
     return (  
@@ -20,14 +21,16 @@ function Navigation() {
                     <Route path="/about" element={<About />} exact>
                       
                     </Route>
-                    <Route path="/list" element={<Recipes />} exact>
-                        
+                    <Route path="/recipes" component={Recipes} exact>
+                        <Recipes />
                     </Route>
                     <Route path="/new" element={<New />}exact></Route>
                     <Route path="/profile" element={<Profile />} exact>
                         
                     </Route>
-                   
+                    <Route path="/recipes/:id">
+                        <RecipeDetails />
+                    </Route>
                 </Switch>
               
             </Router>

@@ -1,5 +1,4 @@
 import './App.css';
-import Navigation from './compoents/navbar/Navigation';
 import SignUp from './compoents/form/Sigin-up';
 import Reset from './compoents/form/Reset';
 import Nav from "./compoents/navbar/Nav"
@@ -9,6 +8,7 @@ import SingleRecipeAll from './compoents/components/SingleRecipeAll';
 import SingleRecipeCrud from './compoents/components/SingleRecipeCrud';
 import Login from './compoents/form/Login';
 import AddAllergy from './compoents/form/AddAllergy';
+import Navigation from './compoents/navbar/Navigation';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <UserRecipes/>
       <SignUp />
       <Reset />
-      <Navigation />
+     <Navigation />
 
     </div>
   );
