@@ -1,15 +1,12 @@
 import axios from 'axios';
 import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import RecipeWarning from './RecipeWarning';
 import RecipeLabels from './RecipeLabels';
 import RecipeIngredients from './RecipeIngredients';
-import RecipeReviews from '../subcomponents/RecipeReviews';
 import NewRecipe from '../navbar/NewRecipe';
 import DeleteRecipe from '../subcomponents/DeleteRecipe';
 import AddIngredient from '../form/AddIngredient';
-import RemoveIngredient from '../subcomponents/RemoveIngredient';
 import AddLabel from '../form/AddLabel';
 import RemoveLabel from '../subcomponents/RemoveLabel';
 import TotalCalories from './TotalCalories';
@@ -32,7 +29,7 @@ function SingleRecipeCrud(props) {
             <RecipeWarning recipe={store.recipe}/>
             <RecipeLabels recipe={store.recipe}/>
             <AddLabel recipe_id={store.recipe.id}/>
-            <img src={store.recipe.recipe_image}/>
+            <img src={store.recipe.recipe_image} alt='recipe display'/>
             <p>{store.recipe.description}</p>
             <RecipeIngredients recipe={store.recipe}/>
             <AddIngredient recipe={store.recipe}/>

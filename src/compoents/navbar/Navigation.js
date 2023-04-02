@@ -6,11 +6,11 @@ import About from "./About";
 import Recipes from "./listRecipe";
 import NewRecipe from "./NewRecipe";
 import Profile from "./Profile";
-import RecipeDetails from "../RecipeDetailes";
 import Update from "../UpdateAccount";
 import Personal from "./PersonalList"
 import Login from "../form/Login"
 import Register from "../form/Register"
+import SingleRecipeAll from "../components/SingleRecipeAll";
 
 function Navigation() {
     return (  
@@ -43,7 +43,7 @@ function Navigation() {
                         <Profile />
                     </Route>
                     <Route path="/recipes/:id">
-                        <RecipeDetails />
+                        <SingleRecipeAll />
                     </Route>
                     <Route path="/update/user">
                         <Update />

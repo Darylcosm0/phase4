@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import RecipeWarning from './RecipeWarning';
 import RecipeLabels from './RecipeLabels';
@@ -22,21 +21,27 @@ function SingleRecipeAll(props) {
     },[currentRecipe])
     return (
         <div>
-            <h3>{store.recipe.title}</h3>
-            <RecipeWarning recipe={store.recipe}/>
-            <RecipeLabels recipe={store.recipe}/>
-            <img src={store.recipe.recipe_image}/>
-            <p>{store.recipe.description}</p>
-            <RecipeIngredients recipe={store.recipe}/>
-            <p>{store.recipe.instructions}</p>
-            <p>{store.recipe.cuisine}</p>
-            <TotalCalories/>
-            <div>
+            <article>
+                    <img src={store.recipe.recipe_image} alt='recipe display'/>
+                    <RecipeLabels recipe={store.recipe}/>
+                    <h3>{store.recipe.title}</h3>
+                    <p>{store.recipe.cuisine}</p>
+                    <RecipeWarning recipe={store.recipe}/>
+                    <p>{store.recipe.description}</p>
+                    <RecipeIngredients recipe={store.recipe}/>
+                    <p>{store.recipe.instructions}</p>
+                <TotalCalories/>
+                <div>
                 <RecipeReviews recipe={store.recipe}/>
                 <div>
                     <AddReview recipe={store.recipe}/>
                 </div>
-            </div>
+                </div> 
+
+                <div>
+                    
+                </div>
+            </article>
 
         </div>
     );
