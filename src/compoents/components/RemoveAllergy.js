@@ -6,7 +6,7 @@ function RemoveAllergy(props) {
         onClick={()=>{
          axios.delete(`/${allergy.id}`)
         }}
-        >Remove Allergy</button>
+        >X</button>
     );
 }
 

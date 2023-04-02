@@ -4,7 +4,6 @@ import {useStore} from "zustand"
 import { recipesStore } from '../../data/RecipesStore';
 
 function RemoveIngredient({id}) {
-    console.log(id)
     const store = useStore(recipesStore)
     return (
      <button onClick={(()=>{
