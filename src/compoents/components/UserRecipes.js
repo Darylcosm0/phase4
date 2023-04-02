@@ -5,6 +5,7 @@ import ListRecipe from './ListRecipe';
 import axios from 'axios';
 import Search from '../Search';
 import Sort from '../form/Sort';
+import TotalCalories from './TotalCalories';
 
 
 function UserRecipes(props) {

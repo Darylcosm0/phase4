@@ -7,6 +7,7 @@ import Search from "../Search";
 import Sort from "../form/Sort";
 import { useStore } from "zustand";
 import { recipesStore} from "../../data/RecipesStore";
+import TotalCalories from "./TotalCalories";
 
 function AllRecipes(props) {
   const store = useStore(recipesStore)
