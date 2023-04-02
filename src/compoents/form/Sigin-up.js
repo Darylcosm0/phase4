@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
-import Allergy from "./Allergy";
+import AddAllergy from "./AddAllergy";
 import Reset from "./Reset";
 import Navigation from "../navbar/Navigation";
 
@@ -21,7 +21,7 @@ function SignUp() {
         <section>
             {location === 'register' ? <Register toggleForm={toggleForm} onLoginClick={handleLoginClick}/> : 
              location === 'login' ? <Login toggleForm={toggleForm}/> : 
-             location === 'allergy' ? <Allergy /> :
+             location === 'allergy' ? <AddAllergy /> :
              location === 'reset' ? <Reset /> :
              location === 'navigation' ? <Navigation /> :
              null}

@@ -1,15 +1,39 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+
 
 function Reset() {
 
     const [reset, setReset] = useState('');
     const [email, setEmail] = useState('');
 
-    const handleReset = (e) => {
+    const history = useHistory();
+
+    const handleReset = async (e) => {
         e.preventDefault();
-        //logic
-        console.log(reset);
-    }
+
+        try{
+          const response = await 
+                        fetch('/api/reset-password', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' 
+                        },
+                        body: JSON.stringify({ email, password: reset })
+                    });
+                    if (response.ok) {
+                        console.log('Password reset successful');
+                        // show success message to the user 
+                        history.push('./Login.js');
+                    } else {
+                        console.log('Password reset failed');
+                        // show error message to the user
+                    }
+                }catch (error) {
+                        console.log('Password reset failed', error); 
+                        // show error message to the user
+                    }
+      };
+      
 
     return (  
         <section>
