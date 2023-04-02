@@ -12,7 +12,7 @@ function ListRecipe({recipes}) {
         thisRecipe.changeCurrentRecipe(recipe.id)
       }}>
       <h4>{recipe.title}</h4>
-      <p>{recipe.description}</p>
+      {/* <p>{recipe.description}</p> */}
       <TotalCalories ingredients={recipe.ingredients}/>
       
       </div>
