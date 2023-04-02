@@ -9,6 +9,15 @@ const Profile = () => {
 
     const history = useHistory();
 
+    const handleLogout = () => {
+      setIsLoading(true);
+
+        console.log('Logged out successfully')
+        setIsLoading(false);
+        history.push('/src/compoents/form/Sigin-up.js');
+
+    };
+
     const handleDeleteAccount = () => {
         setIsLoading(true);
 
@@ -17,7 +26,7 @@ const Profile = () => {
         }).then(() => {
             console.log('Account deleted successfully')
             setIsLoading(false);
-            history.push('../form/Sigin-up.js');
+            history.push('/src/compoents/form/Sigin-up.js');
            })
     };
 
@@ -49,6 +58,12 @@ const Profile = () => {
                   className="img-fluid"
                   alt="avatar"
                 />
+                { !isLoading && <button className="btn btn-outline-warning" onClick={handleLogout}>
+                  Logout
+                </button>}
+                { isLoading && <button className="btn btn-outline-warning" disabled>
+                  logging out....
+                </button>}
                 <Link to="/update/user">
                   <button className="btn btn-outline-success">Update Account</button>
                 </Link>

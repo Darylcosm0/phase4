@@ -8,6 +8,7 @@ import NewRecipe from "./NewRecipe";
 import Profile from "./Profile";
 import RecipeDetails from "../RecipeDetailes";
 import Update from "../UpdateAccount";
+import Personal from "./PersonalList"
 
 function Navigation() {
     return (  
@@ -23,6 +24,9 @@ function Navigation() {
                     </Route>
                     <Route path="/recipes" exact>
                         <Recipes />
+                    </Route>
+                    <Route path="/mylist" exact>
+                        <Personal />
                     </Route>
                     <Route path="/new" exact>
                         <NewRecipe />
