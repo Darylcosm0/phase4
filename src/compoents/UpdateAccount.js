@@ -1,13 +1,13 @@
-import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import Login from "../compoents/form/Login"
 
 const Update = () => {
 
     const [name, setName] = useState('');
     const [newPass, setNewPass] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
-    const history = useHistory();
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -21,9 +21,13 @@ const Update = () => {
         }).then(() => {
             console.log('updated name and password successfully')
             setIsLoading(false);
-            history.push('/login');
+            setSubmitted(true);
         });
     }
+
+    if (submitted) {
+        return <Login />;
+      }
 
     return (  
         <section>

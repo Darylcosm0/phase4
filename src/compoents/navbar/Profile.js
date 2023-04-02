@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import SignUp from "../form/Sigin-up";
 
 const Profile = () => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
-    const history = useHistory();
 
     const handleLogout = () => {
       setIsLoading(true);
 
         console.log('Logged out successfully')
         setIsLoading(false);
-        history.push('/login');
-
+        setSubmitted(true);
     };
+
+    if (submitted) {
+      return <SignUp />;
+    }
 
     const handleDeleteAccount = () => {
         setIsLoading(true);
@@ -26,9 +29,13 @@ const Profile = () => {
         }).then(() => {
             console.log('Account deleted successfully')
             setIsLoading(false);
-            history.push('/register');
+            setSubmitted(true);
            })
     };
+
+    if (submitted) {
+      return <SignUp />;
+    }
 
   return (
     <section className="content">
