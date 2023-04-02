@@ -7,6 +7,8 @@ import Search from "../Search";
 import Sort from "../form/Sort";
 import { useStore } from "zustand";
 import { recipesStore} from "../../data/RecipesStore";
+import TotalCalories from "./TotalCalories";
+import { Link } from "react-router-dom";
 
 function AllRecipes(props) {
   const store = useStore(recipesStore)
