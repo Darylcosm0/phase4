@@ -31,8 +31,20 @@ const singleRecipeData = (set) => ({
         }))
     }
     })
-    
+
     const singleRecipeStore = create(singleRecipeData)
+
+const currentRecipe = (set) => ({
+        recipe:undefined,
+        changeCurrentRecipe:(recipe) =>{
+            set((state) => ({
+                recipe:recipe
+            }))
+        }
+        })
+    
+    const currentRecipeStore = create(currentRecipe)
+export {currentRecipeStore}
 export {singleRecipeStore};
 export  {recipesStore};
 export {userStore};

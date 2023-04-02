@@ -10,14 +10,16 @@ import AddReview from '../form/AddReview';
 import TotalCalories from './TotalCalories';
 import { useStore } from 'zustand';
 import {singleRecipeStore } from '../../data/RecipesStore';
+import { currentRecipeStore } from '../../data/RecipesStore';
 
 function SingleRecipeAll(props) {
     const store = useStore(singleRecipeStore)
+    const currentRecipe = useStore(currentRecipeStore)
     useEffect(() =>{
-    axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/2").then(
+    axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
     r => store.changeSingleRecipe(r.data)
     )
-    },[])
+    },[currentRecipe])
     return (
         <div>
             <h3>{store.recipe.title}</h3>

@@ -16,15 +16,16 @@ import TotalCalories from './TotalCalories';
 import UpdateRecipe from '../form/UpdateRecipe';
 import { singleRecipeStore } from '../../data/RecipesStore';
 import { useStore } from 'zustand';
-
+import { currentRecipeStore } from '../../data/RecipesStore';
 
 function SingleRecipeCrud(props) {
     const store = useStore(singleRecipeStore)
+    const currentRecipe = useStore(currentRecipeStore)
     useEffect(() =>{
-    axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes/1").then(
+    axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
     r => store.changeSingleRecipe(r.data)
     )
-    },[])
+    },[currentRecipe])
     return (
         <div>
             <h3>{store.recipe.title}</h3>
