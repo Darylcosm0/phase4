@@ -3,6 +3,7 @@ import {useStore} from "zustand"
 import { userStore } from '../../data/RecipesStore';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import axios from "axios"
 
 function AddReview({recipe}) {
   const user = useStore(userStore)
@@ -17,15 +18,18 @@ function AddReview({recipe}) {
   useEffect(()=>{
     setReview({
         ...review,
-        user_id: user.user.id,
-        recipe_id:recipe.id
-       })
-  },[recipe])
+        user_id: user.user.id})
+  },[user])
 
   function handleSubmit(e){
    e.preventDefault()  
-   console.log(review) 
+   setReview({
+    ...review,
+    recipe_id:recipe.id
+   })
+    axios.post("https://phase-4-project-recipes-backend.onrender.com/reviews",review)
   }
+ 
     return (
      <form onSubmit={handleSubmit}>
         <h3>Add Review</h3>

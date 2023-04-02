@@ -28,8 +28,9 @@ function SingleRecipeCrud(props) {
     return (
         <div>
             <h3>{store.recipe.title}</h3>
-            <RecipeWarning/>
-            <RecipeLabels/>
+            <RecipeWarning recipe={store.recipe}/>
+            <RecipeLabels recipe={store.recipe}/>
+            <AddLabel recipe_id={store.recipe.id}/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>
             <RecipeIngredients recipe={store.recipe}/>
@@ -38,14 +39,13 @@ function SingleRecipeCrud(props) {
             <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
             <div>
-                <RecipeReviews/>
+                {/* <RecipeReviews/> */}
                 <div>
                     <NewRecipe/>
                     <UpdateRecipe recipe={store.recipe}/>
                     <DeleteRecipe recipe={store.recipe}/>
                 </div>
                 <div>
-                    <AddLabel/>
                     <RemoveLabel/>
                 </div>
             </div>
