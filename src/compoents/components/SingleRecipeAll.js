@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import RecipeWarning from './RecipeWarning';
 import RecipeLabels from './RecipeLabels';
@@ -14,11 +14,25 @@ import { currentRecipeStore } from '../../data/RecipesStore';
 function SingleRecipeAll(props) {
     const store = useStore(singleRecipeStore)
     const currentRecipe = useStore(currentRecipeStore)
+    const [comment, setComment] = useState(false);
+
     useEffect(() =>{
     axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
     r => store.changeSingleRecipe(r.data)
     )
     },[currentRecipe])
+
+
+    const handleComment = (e) => {
+        e.preventDefault();
+        setComment(true);
+        
+    }
+
+    if (comment) {
+        return <AddReview recipe={store.recipe}/>
+    }
+
     return (
         <div>
             <article>
@@ -31,18 +45,15 @@ function SingleRecipeAll(props) {
                     <RecipeIngredients recipe={store.recipe}/>
                     <p>{store.recipe.instructions}</p>
                 <TotalCalories/>
-                <div>
-                <RecipeReviews recipe={store.recipe}/>
-                <div>
-                    <AddReview recipe={store.recipe}/>
-                </div>
-                </div> 
-
-                <div>
-                    
-                </div>
             </article>
-
+                <div>
+                    <div>
+                            <div>
+                                <button onClick={handleComment}>Leave a comment</button>
+                            </div>
+                        <RecipeReviews recipe={store.recipe}/>
+                    </div> 
+                </div>
         </div>
     );
 }
