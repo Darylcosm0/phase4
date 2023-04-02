@@ -27,10 +27,7 @@ function RecipeWarning({ recipe }) {
     useEffect(()=>{
         setAllergicTo(allergyNames.filter(ingredient => ingredients.includes(ingredient)))
     },[allergyNames])
-    console.log(allergies)
-    console.log(ingredients)
-    console.log(allergicTo)
-    console.log(allergyNames)
+
     if(allergyNames.length > 0)
     return (
     allergicTo.map(allergy=>{

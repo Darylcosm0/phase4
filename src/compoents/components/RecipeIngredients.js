@@ -17,8 +17,11 @@ function RecipeIngredients({recipe}) {
   else{
       if(recipe.id == currentUser.user.id){
       return(  currentIngredients.map((ingredient)=>{
+        console.log(ingredient.calories * ingredient.quantity)
         return <div key={ingredient.id}>
         <div>{ingredient.name}</div>
+        <p>Calories:{ingredient.calories * ingredient.quantity}</p>
+        
         <RemoveIngredient id={ingredient.id}/>
         </div>
         
@@ -29,6 +32,7 @@ function RecipeIngredients({recipe}) {
       return(  currentIngredients.map((ingredient)=>{
         return <div key={ingredient.id}>
         <div>{ingredient.name}</div>
+        <p>Calories:{ingredient.calories * ingredient.quantity}</p>
         </div>
       })
       )
