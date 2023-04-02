@@ -21,7 +21,7 @@ const Update = () => {
         }).then(() => {
             console.log('updated name and password successfully')
             setIsLoading(false);
-            history.push('/src/compoents/form/Sigin-up.js');
+            history.push('/login');
         });
     }
 

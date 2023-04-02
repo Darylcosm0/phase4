@@ -9,6 +9,8 @@ import Profile from "./Profile";
 import RecipeDetails from "../RecipeDetailes";
 import Update from "../UpdateAccount";
 import Personal from "./PersonalList"
+import Login from "../form/Login"
+import Register from "../form/Register"
 
 function Navigation() {
     return (  
@@ -18,6 +20,12 @@ function Navigation() {
                 <Switch>
                     <Route path="/" exact>
                         <Home />
+                    </Route>
+                    <Route path="/register" exact>
+                        <Register />
+                    </Route>
+                    <Route path="/login" exact>
+                        <Login />
                     </Route>
                     <Route path="/about" exact>
                         <About />

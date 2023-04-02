@@ -7,11 +7,6 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const store = useStore(userStore)
-  const onLogin = (e) => {
-    e.preventDefault();
-    props.toggleForm("navigation");
-    console.log("welcome");
-  };
 
   const onResetPassword = (e) => {
     e.preventDefault();
@@ -19,13 +14,21 @@ function Login(props) {
     console.log("reset password");
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, email, password, store, props) => {
     e.preventDefault();
-    axios.post("https://phase-4-project-recipes-backend.onrender.com/login",{
-    email:email,
-    password:password
-    }).then(r => store.changeUser(r.data.user))
-}
+    axios.post("https://phase-4-project-recipes-backend.onrender.com/login", {
+      email: email,
+      password: password
+    }).then(r => {
+      store.changeUser(r.data.user);
+      props.toggleForm("navigation");
+      console.log("welcome");
+    }).catch(error => {
+      alert("Error: " + error.message);
+    });
+  }
+  
+  
 
 //   return (
 //     <section>

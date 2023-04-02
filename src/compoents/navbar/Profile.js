@@ -14,7 +14,7 @@ const Profile = () => {
 
         console.log('Logged out successfully')
         setIsLoading(false);
-        history.push('/src/compoents/form/Sigin-up.js');
+        history.push('/login');
 
     };
 
@@ -26,7 +26,7 @@ const Profile = () => {
         }).then(() => {
             console.log('Account deleted successfully')
             setIsLoading(false);
-            history.push('/src/compoents/form/Sigin-up.js');
+            history.push('/register');
            })
     };
 
