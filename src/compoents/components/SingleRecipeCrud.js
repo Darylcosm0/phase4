@@ -28,7 +28,7 @@ function SingleRecipeCrud(props) {
     return (
         <div>
             <h3>{store.recipe.title}</h3>
-            <RecipeWarning/>
+            <RecipeWarning recipe={store.recipe}/>
             <RecipeLabels recipe={store.recipe}/>
             <AddLabel recipe_id={store.recipe.id}/>
             <img src={store.recipe.recipe_image}/>

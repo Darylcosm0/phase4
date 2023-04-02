@@ -21,7 +21,7 @@ function SingleRecipeAll(props) {
     return (
         <div>
             <h3>{store.recipe.title}</h3>
-            <RecipeWarning/>
+            <RecipeWarning recipe={store.recipe}/>
             <RecipeLabels recipe={store.recipe}/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>

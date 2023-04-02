@@ -4,8 +4,6 @@ import { useStore } from 'zustand';
 import { singleRecipeStore } from '../../data/RecipesStore';
 
 function RemoveLabel({recipe_id,label_id}) {
-    console.log(recipe_id)
-    console.log(label_id)
     const singleStore = useStore(singleRecipeStore)
     return (
        <button onClick={()=>{
