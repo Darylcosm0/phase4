@@ -1,45 +1,38 @@
-import React from 'react';
+import axios from "axios";
 import Create from "../Create";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useStore } from "zustand";
-import { recipesStore } from "../../data/RecipesStore";
-import axios from 'axios';
-import { userStore } from '../../data/RecipesStore';
-import { singleRecipeStore } from '../../data/RecipesStore';
+import { recipesStore, userStore } from "../../data/RecipesStore";
 
-function UpdateRecipe({recipe}){
+function NewRecipe(){
         function handleSubmit(e){
             e.preventDefault()
-           setRecipeData({...recipeData,user_id:currentUser.user.id})
-            axios.put(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData).then(
+            setRecipeData({...recipeData, user_id:loggedUserStore.user.id})
+            axios.post("https://phase-4-project-recipes-backend.onrender.com/recipes",recipeData).then(
                 axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
                     r => store.changeRecipes(r.data)
-                ),
-                axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`).then(
-                  r => singleStore.changeSingleRecipe(r.data)
-              )
-
+                )
             )
                 }
     const store = useStore(recipesStore)
-    const singleStore = useStore(singleRecipeStore)
-    const currentUser = useStore(userStore)
+    const loggedUserStore = useStore(userStore) 
     const [recipeData,setRecipeData] = useState({
-    title:recipe.title,
-    instructions:recipe.instructions,
-    description:recipe.description,
-    cuisine:recipe.cuisine,
-    recipe_image:recipe.image,
+    title:"",
+    instructions:"",
+    description:"",
+    cuisine:"",
+    recipe_image:"",
     user_id:null
     })
+   
   return (
     // <section className="content">
     //     <Create />
     // </section>
 
     <form onSubmit={handleSubmit}>
-        <h2>Update your recipe</h2>
+        <h2>Create your very own recipe!</h2>
       <input type="text" placeholder="Title" onChange={(e)=>{
       setRecipeData({
         ...recipeData,title:e.target.value
@@ -68,9 +61,9 @@ function UpdateRecipe({recipe}){
         ...recipeData,recipe_image:e.target.value
       })
       }}></input>
-      <button type="submit">Update</button>
+      <button type="submit">Create Recipe</button>
     </form>
   );
 };
 
-export default UpdateRecipe;
+export default NewRecipe;

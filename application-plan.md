@@ -11,8 +11,6 @@ This is an application geared towards creating recipes and sharing them, with a 
 6. Sort the recipes by the oldest
 
 7. Create a new recipe
-3.RemoveAllergy
--delete an alergy a user has added from the database
 
 8. Delete a recipe they have created 
 9. Update a recipe they have created
@@ -69,6 +67,7 @@ This is an application geared towards creating recipes and sharing them, with a 
  - render **RecipeIngredients**
  - instructions
  - cuisine
+ - render **TotalCalories**
 
  -render **RecipeReviews**
 
@@ -91,6 +90,7 @@ This is an application geared towards creating recipes and sharing them, with a 
     - render **RecipeIngredients**
     - instructions
     - cuisine
+    - render **TotalCalories**
 
 - render **RecipeReviews**
 

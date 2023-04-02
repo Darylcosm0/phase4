@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import listRecipe from '../navbar/listRecipe';
+import ListRecipe from './ListRecipe';
+import axios from 'axios';
+import Search from '../Search';
+import Sort from '../form/Sort';
 
 
 function UserRecipes(props) {
@@ -11,8 +14,10 @@ function UserRecipes(props) {
     })
     return (
      <>
-     <h1>Your Rceipes</h1>
-     <listRecipe recipes={recipes}/>
+     <Search/>
+     <Sort/>
+     <h1>Your Recipes</h1>
+     <ListRecipe recipes={recipes}/>
      
      </>
     );

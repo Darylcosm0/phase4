@@ -16,7 +16,7 @@ function Nav() {
             <Link to='/about' className="about">
                 <li>About</li>
             </Link>
-            <Link to='/list' className="recipes">
+            <Link to='/recipes' className="recipes">
                 <li>Recipe list</li>
             </Link>
             <Link to='/new' className="new">
