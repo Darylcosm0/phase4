@@ -7,7 +7,6 @@ import RecipeLabels from './RecipeLabels';
 import RecipeIngredients from './RecipeIngredients';
 import RecipeReviews from '../subcomponents/RecipeReviews';
 import AddReview from '../form/AddReview';
-import RemoveReview from '../subcomponents/RemoveReview';
 import TotalCalories from './TotalCalories';
 import { useStore } from 'zustand';
 import {singleRecipeStore } from '../../data/RecipesStore';
@@ -22,8 +21,8 @@ function SingleRecipeAll(props) {
     return (
         <div>
             <h3>{store.recipe.title}</h3>
-            <RecipeWarning/>
-            <RecipeLabels/>
+            <RecipeWarning recipe={store.recipe}/>
+            <RecipeLabels recipe={store.recipe}/>
             <img src={store.recipe.recipe_image}/>
             <p>{store.recipe.description}</p>
             <RecipeIngredients recipe={store.recipe}/>
@@ -31,10 +30,9 @@ function SingleRecipeAll(props) {
             <p>{store.recipe.cuisine}</p>
             <TotalCalories/>
             <div>
-                <RecipeReviews/>
+                <RecipeReviews recipe={store.recipe}/>
                 <div>
                     <AddReview recipe={store.recipe}/>
-                    <RemoveReview/>
                 </div>
             </div>
 

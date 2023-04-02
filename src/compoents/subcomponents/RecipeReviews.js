@@ -1,11 +1,20 @@
 import React from 'react';
+import RemoveReview from "./RemoveReview"
 
-function RecipeReviews(props) {
+function RecipeReviews({recipe}) {
+    if(recipe.reviews !== undefined){
     return (
-        <div>
-            RecipeReviews
-        </div>
-    );
+     recipe.reviews.map((review)=>{
+       return <div>
+        <p>{review.rating}</p>
+        <p>{review.comment}</p>
+        <RemoveReview recipe_id={recipe.id} review_id={review.id}/>
+       </div>
+     })
+    )
+}else{
+    return "loading..."
+}
 }
 
 export default RecipeReviews;
