@@ -9,9 +9,11 @@ function AddLabel({ recipe_id }) {
   const singleStore = useStore(singleRecipeStore);
   const [label, setLabel] = useState("1");
   const [add, setAdd] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .post(
         "https://phase-4-project-recipes-backend.onrender.com/recipe_labels",
@@ -54,7 +56,8 @@ Label.create(name:"Alcoholic",color:"pink")
 Label.create(name:"Caffeinated",color:"brown") */}
 
       </select>
-      <button onClick={handleAdd}>Add</button>
+      { !isLoading && <button onClick={handleAdd}>Add</button>}
+      { isLoading && <button disabled>Add....</button>}
     </form>
   );
 }

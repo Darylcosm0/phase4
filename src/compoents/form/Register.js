@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AddAllergy from "./AddAllergy";
 import Login from "./Login";
 
 function Register() {
@@ -16,7 +15,7 @@ function Register() {
     setCreated(true);
   };
   if (created) {
-    return <AddAllergy />
+    return <Login />
   }
 
   const handleChange = () => {

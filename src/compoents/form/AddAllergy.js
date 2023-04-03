@@ -43,7 +43,6 @@ function AddAllergy(props) {
   }
 
   return (
-    <div>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -54,11 +53,12 @@ function AddAllergy(props) {
       ></input>
       { !isLoading && <button type="submit">Add allergy</button>}
       { isLoading && <button type="submit" disabled>Add...</button>}
+
+      { !isLoading && <button type="submit" onClick={onSkip}>Skip</button>}
+      { isLoading && <button type="submit" disabled>loading...</button>}
     </form>
-    
-    { !isLoading && <button type="submit" onClick={onSkip}>Skip</button>}
-    { isLoading && <button type="submit" disabled>loading...</button>}
-    </div>
+  
+  
   );
 }
 

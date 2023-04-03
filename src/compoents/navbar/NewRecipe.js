@@ -2,15 +2,23 @@ import axios from "axios";
 import { useState } from "react";
 import { useStore } from "zustand";
 import { recipesStore, userStore } from "../../data/RecipesStore";
+import { useHistory } from "react-router-dom";
 
 function NewRecipe(){
+
+  const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false)
+
         function handleSubmit(e){
             e.preventDefault()
+            setIsLoading(true)
             setRecipeData({...recipeData, user_id:loggedUserStore.user.id})
             axios.post("https://phase-4-project-recipes-backend.onrender.com/recipes",recipeData).then(
-                axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
-                    r => store.changeRecipes(r.data)
-                )
+                axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then( r => {
+                    store.changeRecipes(r.data)
+                    history.push('/recipes')
+                    setIsLoading(false)
+                    })
             )
                 }
     const store = useStore(recipesStore)
@@ -59,7 +67,8 @@ function NewRecipe(){
         ...recipeData,recipe_image:e.target.value
       })
       }}></input>
-      <button type="submit">Create Recipe</button>
+       { !isLoading && <button type="submit">Create Recipe</button>}
+      { isLoading && <button type="submit" disabled>Creating...</button>}
     </form>
   );
 };
