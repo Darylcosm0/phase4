@@ -1,27 +1,37 @@
 import React from 'react';
-import Create from "../Create";
 import { useState } from "react";
-import { useEffect } from "react";
 import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
 import axios from 'axios';
 import { userStore } from '../../data/RecipesStore';
 import { singleRecipeStore } from '../../data/RecipesStore';
+import { useHistory } from "react-router-dom";
 
 function UpdateRecipe({recipe}){
+
+  const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false)
+
         function handleSubmit(e){
             e.preventDefault()
+            setIsLoading(true)
            setRecipeData({...recipeData,user_id:currentUser.user.id})
-            axios.put(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData).then(
-                axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes").then(
-                    r => store.changeRecipes(r.data)
-                ),
-                axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`).then(
-                  r => singleStore.changeSingleRecipe(r.data)
+            axios.put(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`,recipeData)
+              .then(
+                axios.get("https://phase-4-project-recipes-backend.onrender.com/recipes")
+                  .then(r => store.changeRecipes(r.data))
               )
+              .then(
+                axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`)
+                  .then(r => {
+                    singleStore.changeSingleRecipe(r.data)
+                    history.push('/mylist')
+                    setIsLoading(false)
+                    console.log('created new recipe successfully')
+                  })
+              )
+        }
 
-            )
-                }
     const store = useStore(recipesStore)
     const singleStore = useStore(singleRecipeStore)
     const currentUser = useStore(userStore)
@@ -33,11 +43,8 @@ function UpdateRecipe({recipe}){
     recipe_image:recipe.image,
     user_id:null
     })
-  return (
-    // <section className="content">
-    //     <Create />
-    // </section>
 
+  return (
     <form onSubmit={handleSubmit}>
         <h2>Update your recipe</h2>
       <input type="text" placeholder="Title" onChange={(e)=>{
@@ -68,7 +75,8 @@ function UpdateRecipe({recipe}){
         ...recipeData,recipe_image:e.target.value
       })
       }}></input>
-      <button type="submit">Update</button>
+      { !isLoading && <button type="submit">Update</button>}
+      { isLoading && <button type="submit" disabled>Updating...</button>}
     </form>
   );
 };

@@ -1,30 +1,35 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import SignUp from "../form/Sigin-up";
+import Login from '../form/Login'
 
 const Profile = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-
     const handleLogout = () => {
       setIsLoading(true);
 
-        console.log('Logged out successfully')
-        setIsLoading(false);
-        setSubmitted(true);
+      fetch('https://phase-4-project-recipes-backend.onrender.com/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        }).then(() => {
+          console.log('Logged out successfully')
+          setIsLoading(false);
+          setSubmitted(true);
+        })
     };
-
     if (submitted) {
-      return <SignUp />;
+      return <Login />
     }
 
     const handleDeleteAccount = () => {
         setIsLoading(true);
 
-        fetch('http://localhost:8000/recipes/id', {
+        fetch('api', {
             method: 'DELETE',
         }).then(() => {
             console.log('Account deleted successfully')
@@ -32,9 +37,8 @@ const Profile = () => {
             setSubmitted(true);
            })
     };
-
     if (submitted) {
-      return <SignUp />;
+      return <Login />
     }
 
   return (

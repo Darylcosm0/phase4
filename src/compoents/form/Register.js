@@ -1,95 +1,116 @@
 import React, { useState } from "react";
+import Login from "./Login";
 
-function Register(props) {
+function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password_confirmation, setPassword_confirmation] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [created, setCreated] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
-  const [confirm, setConfirm] = useState('');
-  const [error, setError] = useState('');
+  
+  const handleChange = () => {
+    setClicked(true);
+  };
 
-  const handleChange = (e) => {
+  const handleCreate = () => {
+    setCreated(true);
+  };
+
+
+  const onRegisterClick = (e) => {
     e.preventDefault();
-  }
+    setIsLoading(true);
 
-  const onLoginClick = (e) => {
-    e.preventDefault();
+    if (password !== password_confirmation) {
+      setError("Passwords do not match");
+      setIsLoading(false);
+      return;
+    }
+
+
     // Make the fetch post request
-    fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        username: username
+    fetch("https://phase-4-project-recipes-backend.onrender.com/signup", {
+      method: "GET", 
       })
-    })
-    .then(response => {
-      if (response.ok) {
-        // Handle successful response here
-        console.log('Login successful');
-        props.toggleForm('allergy');
-        console.log(username, email);
-      } else {
-        // Handle error response here
-        setError('Login failed. Please check your credentials and try again.');
-      }
-    })
-    .catch(error => {
-      // Handle fetch error here
-      setError('An error occurred while logging in. Please try again later.');
-      console.log('Fetch error:', error);
-    });
-  }
+      .then((response) => {
+        setIsLoading(false);
+        if (response.ok) {
+          // Handle successful response here
+          console.log("Registration successful");
 
+          console.log(username, email);
+        } else {
+          // Handle error response here
+          setError(
+            "An error occurred while registering. Please try again later."
+          );
+          console.log("Fetch error:", response.status);
+        }
+      })
+      .catch((error) => {
+        // Handle fetch error here
+        setIsLoading(false);
+        setError(
+          "An error occurred while registering. Please try again later."
+        );
+        console.log("Fetch error:", error);
+      });
+  };
+  
+  
   return (  
     <section>
-      <form onSubmit={handleChange}>
+      <form onSubmit={onRegisterClick}>
         <h2>Create an account</h2>
         <div>
           <label htmlFor="username" className="form-label">Username</label>
           <input 
             required
             value={username} name="name" onChange={(e) => setUsername(e.target.value)}
-            type="name" 
-            id='inputName' 
-            className='form-control' 
+            type="text" 
+            id="inputName" 
+            className="form-control" 
             placeholder="Username"/>
         </div>
         <div>
-          <label htmlFor='exampleInputEmail1' className='form-label'>Email address</label>
+          <label htmlFor="inputEmail1" className="form-label">Email address</label>
           <input 
             required
             value={email} onChange={(e) => setEmail(e.target.value)} 
-            type='email' id='inputEmail1' 
-            className='form-control' 
-            placeholder='youremail@gmail.com' />
+            type="email" 
+            id="inputEmail1" 
+            className="form-control" 
+            placeholder="youremail@gmail.com" />
         </div>
         <div>
-          <label htmlFor='inputPassword' className='form-label'>Password</label>
+          <label htmlFor="inputPassword" className="form-label">Password</label>
           <input 
             required    
             value={password} onChange={(e) => setPassword(e.target.value)}
-            type='password' 
-            id='inputPassword' 
-            className='form-control' 
-            placeholder='******' />
+            type="password" 
+            id="inputPassword" 
+            className="form-control" 
+            placeholder="******" />
         </div>
         <div>
-          <label htmlFor='inputPassword' className='form-lable'>Confirm Password</label>
+          <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
           <input
             required
-            value={confirm} onChange={(e) => setConfirm(e.target.value)}
-            type='password'
-            id='confirmPassword'
-            className='form-control'
-            placeholder='******' />
+            value={password_confirmation} onChange={(e) => setPassword_confirmation(e.target.value)}
+            type="password"
+            id="confirmPassword"
+            className="form-control"
+            placeholder="******" />
         </div>
+
         {error && <div className="alert alert-danger">{error}</div>}
-        <button className='btn btn-success' onClick={onLoginClick}>Login</button>
-        <button className="link-btn" onClick={() => props.toggleForm('login')}>Already have an account? Login here.</button>
+        { !isLoading && <button className="btn btn-success" onClick={handleCreate}>Sign Up</button>}
+        { isLoading && <button className="btn btn-success" disabled>Signing up...</button>}
+        <button className="link-btn" type="submit" onClick={handleChange}>Already have an account? Login here.</button>
       </form>
     </section>
   );

@@ -1,16 +1,37 @@
 import React, { useState } from "react";
 import { userStore } from "../../data/RecipesStore";
 import axios from "axios";
+import { useStore } from "zustand"
+import Register from "./Register";
+import Reset from "./Reset";
+import AddAllergy from "./AddAllergy";
 
-function Login(props) {
+function Login() {
+  const store = useStore(userStore);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submit, setSubmit] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [changed, setChanged] = useState(false);
+
+  const handleNewUser = () => {
+    console.log("new user");
+    setSubmit(true)
+    //register
+  }
+  if (submit) {
+    return <Register />
+  }
 
   const onResetPassword = (e) => {
     e.preventDefault();
-    props.toggleForm("reset");
+    //reset
     console.log("reset password");
+    setClicked(true);
   };
+  if (clicked) {
+    return <Reset />
+  }
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,12 +39,17 @@ function Login(props) {
       email: email,
       password: password
     }).then(r => {
-      userStore.changeUser(r.data.user);
-      props.toggleForm("navigation");
+      store.changeUser(r.data.user);
+      //navigation
       console.log("welcome");
+      setChanged(true);
     }).catch(error => {
       alert("Error: " + error.message);
+      console.log("error")
     });
+  }
+  if (changed) {
+    return <AddAllergy />
   }
   
   return (  
@@ -64,7 +90,7 @@ function Login(props) {
         <button className="btn btn-warning" onClick={onResetPassword}>
           Forgot Password
         </button>
-        <button className="link-btn" onClick={() => props.toggleForm("register")}>
+        <button className="link-btn" onClick={handleNewUser}>
           Don't have an account? Register here.
         </button>
       </form>

@@ -1,13 +1,10 @@
 import './App.css';
-import SignUp from './compoents/form/Sigin-up';
-import Navigation from './compoents/navbar/Navigation';
-
+import Login from "./compoents/form/Login"
 
 function App() {
   return (
     <div>
-      <SignUp />
-     <Navigation />
+      <Login />
     </div>
   );
 }
