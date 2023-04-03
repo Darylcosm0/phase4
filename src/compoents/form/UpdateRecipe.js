@@ -25,7 +25,7 @@ function UpdateRecipe({recipe}){
                 axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`)
                   .then(r => {
                     singleStore.changeSingleRecipe(r.data)
-                    history.push(`/recipes/${recipe.id}`)
+                    history.push('/mylist')
                     setIsLoading(false)
                     console.log('created new recipe successfully')
                   })
@@ -76,7 +76,7 @@ function UpdateRecipe({recipe}){
       })
       }}></input>
       { !isLoading && <button type="submit">Update</button>}
-      { isLoading && <button type="submit" disabled>Creating...</button>}
+      { isLoading && <button type="submit" disabled>Updating...</button>}
     </form>
   );
 };

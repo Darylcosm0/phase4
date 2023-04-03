@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import SignUp from "../form/Sigin-up";
+import Login from '../form/Login'
 
 const Profile = () => {
 
@@ -23,7 +23,7 @@ const Profile = () => {
         })
     };
     if (submitted) {
-      return <SignUp />;
+      return <Login />
     }
 
     const handleDeleteAccount = () => {
@@ -38,7 +38,7 @@ const Profile = () => {
            })
     };
     if (submitted) {
-      return <SignUp />;
+      return <Login />
     }
 
   return (
