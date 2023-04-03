@@ -40,7 +40,7 @@ function Register(props) {
         if (response.status === 200) {
           // Handle successful response here
           console.log("Registration successful");
-          props.toggleForm("allergy");
+
           console.log(username, email);
         }
       })
