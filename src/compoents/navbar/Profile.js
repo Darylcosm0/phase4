@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import SignUp from "../form/Sigin-up";
 
 const Profile = () => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
-    const history = useHistory();
+
+    const handleLogout = () => {
+      setIsLoading(true);
+
+        console.log('Logged out successfully')
+        setIsLoading(false);
+        setSubmitted(true);
+    };
+
+    if (submitted) {
+      return <SignUp />;
+    }
 
     const handleDeleteAccount = () => {
         setIsLoading(true);
@@ -17,9 +29,13 @@ const Profile = () => {
         }).then(() => {
             console.log('Account deleted successfully')
             setIsLoading(false);
-            history.push('../form/Sigin-up.js');
+            setSubmitted(true);
            })
     };
+
+    if (submitted) {
+      return <SignUp />;
+    }
 
   return (
     <section className="content">
@@ -49,6 +65,12 @@ const Profile = () => {
                   className="img-fluid"
                   alt="avatar"
                 />
+                { !isLoading && <button className="btn btn-outline-warning" onClick={handleLogout}>
+                  Logout
+                </button>}
+                { isLoading && <button className="btn btn-outline-warning" disabled>
+                  logging out....
+                </button>}
                 <Link to="/update/user">
                   <button className="btn btn-outline-success">Update Account</button>
                 </Link>

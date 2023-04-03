@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ListRecipe from './ListRecipe';
 import axios from 'axios';
-import Search from '../Search';
-import Sort from '../form/Sort';
-import TotalCalories from './TotalCalories';
 import { useStore } from 'zustand';
 import { userStore} from '../../data/RecipesStore';
 
@@ -23,7 +20,11 @@ function UserRecipes(props) {
      {/* <Search/>
      <Sort/> */}
      <h1>Your Recipes</h1>
-     <ListRecipe recipes={recipes}/>
+     <div className='card' style={{width: '18rem'}}>
+        <div className='card-body'>
+            <h5 className='class-title'><ListRecipe recipes={recipes}/></h5>
+        </div>
+     </div>
      
      </>
     );

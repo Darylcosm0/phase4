@@ -2,29 +2,35 @@ import React from "react";
 import { useState } from "react";
 import { userStore } from "../../data/RecipesStore";
 import { useStore } from "zustand";
-import axios from "axios"
-import { useHistory } from "react-router-dom";
-
+import axios from "axios";
+import Navigation from "../navbar/Navigation";
 
 function AddAllergy(props) {
-
   const currentUser = useStore(userStore);
   const [allergy, setAllergy] = useState({ name: "", user_id: undefined });
-
-  const history = useHistory();
-
+  const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     setAllergy({
-        ...allergy, user_id:currentUser.user.id
-    })
-    axios.post("https://phase-4-project-recipes-backend.onrender.com/allergies", 
-      allergy).then(() => {
-        history.push("../navbar/Navigation.js");
+      ...allergy,
+      user_id: currentUser.user.id
+    });
+    axios
+      .post(
+        "https://phase-4-project-recipes-backend.onrender.com/allergies",
+        allergy
+      )
+      .then(() => {
+        console.log("Allergies added successfully");
+        setSubmitted(true);
       });
   }
-  
+
+  if (submitted) {
+    return <Navigation />;
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <input

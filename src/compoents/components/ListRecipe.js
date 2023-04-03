@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useStore } from 'zustand';
 import { currentRecipeStore } from '../../data/RecipesStore';
 import TotalCalories from './TotalCalories';
