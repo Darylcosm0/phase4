@@ -15,11 +15,14 @@ function Register() {
   const handleChange = () => {
     setClicked(true);
   };
+  
 
   const handleCreate = () => {
     setCreated(true);
   };
-
+  if (created) {
+    return <Login />
+  }
 
   const onRegisterClick = (e) => {
     e.preventDefault();
