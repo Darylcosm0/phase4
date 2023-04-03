@@ -1,12 +1,15 @@
 import React from 'react';
 import {useStore} from "zustand"
-import { userStore } from '../../data/RecipesStore';
+import { userStore, recipesStore } from '../../data/RecipesStore';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from "axios"
+import { useHistory } from 'react-router-dom';
 
 function AddReview({recipe}) {
   const user = useStore(userStore)
+  const store = useStore(recipesStore)
+  const history = useHistory();
   const [review,setReview] = useState({
     // :rating,:comment,:user_id,:recipe_id
     rating:undefined,
@@ -27,7 +30,11 @@ function AddReview({recipe}) {
     ...review,
     recipe_id:recipe.id
    })
-    axios.post("https://phase-4-project-recipes-backend.onrender.com/reviews",review)
+    axios.post("https://phase-4-project-recipes-backend.onrender.com/reviews"
+    ,review).then(() => {
+      console.log("left comment");
+      history.push(`/recipe/${store.id}`)
+    })
   }
  
     return (

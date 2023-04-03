@@ -17,7 +17,10 @@ function Nav() {
                 <li>About</li>
             </Link>
             <Link to='/recipes' className="recipes">
-                <li>Recipe list</li>
+                <li>Recipes</li>
+            </Link>
+            <Link to='/mylist' className="recipes">
+                <li>My List</li>
             </Link>
             <Link to='/new' className="new">
                 <li>New Item</li>
