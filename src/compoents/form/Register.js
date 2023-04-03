@@ -15,6 +15,9 @@ function Register() {
   const handleChange = () => {
     setClicked(true);
   };
+  if (clicked) {
+    return <Login />
+  }
   
 
   const handleCreate = () => {
