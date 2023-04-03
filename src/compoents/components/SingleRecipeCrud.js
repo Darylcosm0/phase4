@@ -22,14 +22,14 @@ function SingleRecipeCrud(props) {
         )
     },[currentRecipe])
 
-    console.log(store.recipe)
+    // console.log(store.recipe)
 
-    const handleUpdate = () => {
-        setSubmit(true);
-    };
-    if (submit) {
-        return <AddIngredient recipe={store.recipe}/> 
-    }
+    // const handleUpdate = () => {
+    //     setSubmit(true);
+    // };
+    // if (submit) {
+    //     return 
+    // }
 
     return (
         <div>
@@ -40,6 +40,7 @@ function SingleRecipeCrud(props) {
                 <p>{store.recipe.cuisine}</p>
                 <RecipeWarning recipe={store.recipe}/>
                 <p>{store.recipe.description}</p>
+                <AddIngredient recipe={store.recipe}/> 
                 <RecipeIngredients recipe={store.recipe}/>
                 <p>{store.recipe.instructions}</p>
                 <TotalCalories ingredients={store.recipe.ingredients}/>
@@ -48,7 +49,7 @@ function SingleRecipeCrud(props) {
             <div>
                 {/* <RecipeReviews/> */}
                 <div>
-                    <button onClick={handleUpdate}>Update</button>
+                    {/* <button onClick={handleUpdate}>Update</button> */}
                     <DeleteRecipe recipe={store.recipe}/>
                 </div>
             </div>

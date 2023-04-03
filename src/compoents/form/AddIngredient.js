@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { singleRecipeStore } from "../../data/RecipesStore";
+import { currentRecipeStore } from "../../data/RecipesStore";
 import axios from "axios";
 import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
@@ -9,7 +9,7 @@ import AddLabel from "./AddLabel";
 function AddIngredient({ recipe }) {
   // :name,:recipe_id,:quantity,:measurement_unit,:calories
   const store = useStore(recipesStore);
-  const singleStore = useStore(singleRecipeStore);
+  const singleStore = useStore(currentRecipeStore);
   const [next, setNext] = useState();
   const [isLoading, setIsLoading] = useState();
   const [ingredient, setIngredient] = useState({
@@ -30,11 +30,19 @@ function AddIngredient({ recipe }) {
   }, [recipe]);
 
   function handleSubmit(e) {
+    console.log(recipe.id)
     e.preventDefault();
     axios
       .post(
         `https://phase-4-project-recipes-backend.onrender.com/ingredients`,
-        ingredient
+        {
+    name:name,
+    quantity:quantity,
+    measurement_unit: measurement,
+    calories: calories,
+    recipe_id:recipeId
+          
+        }
       )
       .then(
         axios
@@ -42,10 +50,10 @@ function AddIngredient({ recipe }) {
           .then((r) => store.changeRecipes(r.data)),
         axios
           .get(
-            `https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe.id}`
+            `https://phase-4-project-recipes-backend.onrender.com/recipes/${recipeId}`
           )
           .then(
-            (r) => singleStore.changeSingleRecipe(r.data),
+            (r) => singleStore.changeCurrentRecipe(r.data),
             console.log("I've run")
           )
       );
@@ -62,6 +70,7 @@ function AddIngredient({ recipe }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h3>Add an Ingredient</h3>
       <input
         type="text"
         placeholder="Name"
@@ -87,15 +96,12 @@ function AddIngredient({ recipe }) {
         type="text"
         placeholder="Calories"
         onChange={(e) => {
-          setIngredient({
-            ...ingredient,
-            calories: e.target.value,
-          });
+          setCalories(e.target.value)
         }}
       />
       {!isLoading && (
-        <button type="submit" onClick={handleNext}>
-          Next
+        <button type="submit">
+          Add
         </button>
       )}
       {isLoading && (
