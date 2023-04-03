@@ -11,19 +11,15 @@ function Register() {
   const [created, setCreated] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  const handleCreate = (state) => {
-    setCreated(true);
-  };
-  if (created) {
-    return <Login />
-  }
-
+  
   const handleChange = () => {
     setClicked(true);
   };
-  if (clicked) {
-    return <Login />
-  }
+
+  const handleCreate = () => {
+    setCreated(true);
+  };
+
 
   const onRegisterClick = (e) => {
     e.preventDefault();
@@ -34,6 +30,7 @@ function Register() {
       setIsLoading(false);
       return;
     }
+
 
     // Make the fetch post request
     fetch("https://phase-4-project-recipes-backend.onrender.com/signup", {
