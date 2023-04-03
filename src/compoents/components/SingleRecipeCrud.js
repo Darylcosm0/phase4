@@ -6,7 +6,6 @@ import RecipeLabels from './RecipeLabels';
 import RecipeIngredients from './RecipeIngredients';
 import DeleteRecipe from '../subcomponents/DeleteRecipe';
 import AddIngredient from '../form/AddIngredient';
-import RemoveLabel from '../subcomponents/RemoveLabel';
 import TotalCalories from './TotalCalories';
 import { singleRecipeStore } from '../../data/RecipesStore';
 import { useStore } from 'zustand';
