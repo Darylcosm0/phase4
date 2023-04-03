@@ -10,6 +10,14 @@ function AddAllergy(props) {
   const [allergy, setAllergy] = useState({ name: "", user_id: undefined });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [next, setNext] = useState(false);
+
+  const onSkip = () => {
+    setNext(true);
+  };
+  if (next) {
+    return <Navigation />;
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,6 +43,7 @@ function AddAllergy(props) {
   }
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -46,6 +55,10 @@ function AddAllergy(props) {
       { !isLoading && <button type="submit">Add allergy</button>}
       { isLoading && <button type="submit" disabled>Add...</button>}
     </form>
+    
+    { !isLoading && <button type="submit" onClick={onSkip}>Skip</button>}
+    { isLoading && <button type="submit" disabled>loading...</button>}
+    </div>
   );
 }
 

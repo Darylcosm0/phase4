@@ -1,17 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AddAllergy from "./AddAllergy";
+import Login from "./Login";
 
-function Register(props) {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [password_confirmation, setPassword_confirmation] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [created, setCreated] = useState(false);
+  const [clicked, setClicked] = useState(false);
+
+  const handleCreate = (state) => {
+    setCreated(true);
+  };
+  if (created) {
+    return <AddAllergy />
+  }
+
+  const handleChange = () => {
+    setClicked(true);
+  };
+  if (clicked) {
+    return <Login />
+  }
 
   const onRegisterClick = (e) => {
     e.preventDefault();
     setIsLoading(true);
+
 
     if (password !== password_confirmation) {
       setError("Passwords do not match");
@@ -53,6 +72,7 @@ function Register(props) {
         console.log("Axios error:", error);
       });
   };
+  
   
   return (  
     <section>
@@ -100,9 +120,9 @@ function Register(props) {
         </div>
 
         {error && <div className="alert alert-danger">{error}</div>}
-        { !isLoading && <button className="btn btn-success">Sign Up</button>}
+        { !isLoading && <button className="btn btn-success" onClick={handleCreate}>Sign Up</button>}
         { isLoading && <button className="btn btn-success" disabled>Signing up...</button>}
-        <button className="link-btn" onClick={() => props.toggleForm("login")}>Already have an account? Login here.</button>
+        <button className="link-btn" type="submit" onClick={handleChange}>Already have an account? Login here.</button>
       </form>
     </section>
   );

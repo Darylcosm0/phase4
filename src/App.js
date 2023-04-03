@@ -1,12 +1,11 @@
 import './App.css';
-import SignUp from './compoents/form/Sigin-up';
+import Login from "./compoents/form/Login"
 
 
 function App() {
   return (
     <div>
-      <SignUp />
-
+      <Login />
     </div>
   );
 }
