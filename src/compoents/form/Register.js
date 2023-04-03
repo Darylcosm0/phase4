@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import AddAllergy from "./AddAllergy";
 import Login from "./Login";
 
@@ -31,45 +30,38 @@ function Register() {
     e.preventDefault();
     setIsLoading(true);
 
-
     if (password !== password_confirmation) {
       setError("Passwords do not match");
       setIsLoading(false);
       return;
     }
 
-    // Make the axios post request
-    axios
-      .post(
-        "https://api.npoint.io/70087c8a36e0362f1547",
-        {
-          username,
-          email,
-          password,
-          password_confirmation
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+    // Make the fetch post request
+    fetch("https://phase-4-project-recipes-backend.onrender.com/signup", {
+      method: "GET", 
+      })
       .then((response) => {
         setIsLoading(false);
-        if (response.status === 200) {
+        if (response.ok) {
           // Handle successful response here
           console.log("Registration successful");
 
           console.log(username, email);
+        } else {
+          // Handle error response here
+          setError(
+            "An error occurred while registering. Please try again later."
+          );
+          console.log("Fetch error:", response.status);
         }
       })
       .catch((error) => {
-        // Handle axios error here
+        // Handle fetch error here
         setIsLoading(false);
         setError(
           "An error occurred while registering. Please try again later."
         );
-        console.log("Axios error:", error);
+        console.log("Fetch error:", error);
       });
   };
   
