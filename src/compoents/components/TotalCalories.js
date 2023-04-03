@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 function TotalCalories({ ingredients }) {
   const [calories, setCalories] = useState([]);
-  console.log(calories);
   useEffect(() => {
     if (ingredients !== undefined)
       setCalories(
@@ -15,13 +14,13 @@ function TotalCalories({ ingredients }) {
   }, [ingredients]);
   const initialValue = 0;
   return (
-    <div>
+    <p>
       Total Calories:
       {calories.reduce(
         (accumulator, currentValue) => accumulator + currentValue,
         initialValue
       )}
-    </div>
+    </p>
   );
 }
 

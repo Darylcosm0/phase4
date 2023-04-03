@@ -4,6 +4,7 @@ import { userStore } from "../../data/RecipesStore";
 import { useStore } from "zustand";
 import axios from "axios";
 import Navigation from "../navbar/Navigation";
+import { useEffect } from "react";
 
 function AddAllergy(props) {
   const currentUser = useStore(userStore);
@@ -11,6 +12,12 @@ function AddAllergy(props) {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [next, setNext] = useState(false);
+  const [userId,setUserId] = useState(undefined)
+  
+  useEffect(()=>{
+    setUserId(currentUser.user.id)
+  },[currentUser])
+
 
   const onSkip = () => {
     setNext(true);
@@ -22,10 +29,7 @@ function AddAllergy(props) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    setAllergy({
-      ...allergy,
-      user_id: currentUser.user.id
-    });
+    console.log(userId)
     axios
       .post(
         "https://phase-4-project-recipes-backend.onrender.com/allergies",
@@ -48,8 +52,10 @@ function AddAllergy(props) {
         type="text"
         placeholder="Enter allergy here"
         onChange={(e) => {
-          setAllergy({ ...allergy, name: e.target.value });
+          setAllergy({name: e.target.value,
+          user_id:userId});
         }}
+        
       ></input>
       { !isLoading && <button type="submit">Add allergy</button>}
       { isLoading && <button type="submit" disabled>Add...</button>}

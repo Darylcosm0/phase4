@@ -22,7 +22,8 @@ function RecipeWarning({ recipe }) {
         }))
     },[recipe,currentUser])
     useEffect(()=>{
-        setAllergyNames(allergies.map((allergy)=> allergy.name ))
+        setAllergyNames(allergies.map((allergy)=> {
+            return  allergy.name} ))
     },[allergies])
     useEffect(()=>{
         setAllergicTo(allergyNames.filter(ingredient => ingredients.includes(ingredient)))

@@ -22,7 +22,7 @@ function SingleRecipeCrud(props) {
         )
     },[currentRecipe])
 
-
+    console.log(store.recipe)
 
     const handleUpdate = () => {
         setSubmit(true);
