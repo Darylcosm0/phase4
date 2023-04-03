@@ -8,15 +8,20 @@ const Profile = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-
     const handleLogout = () => {
       setIsLoading(true);
 
-        console.log('Logged out successfully')
-        setIsLoading(false);
-        setSubmitted(true);
+      fetch('https://phase-4-project-recipes-backend.onrender.com/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        }).then(() => {
+          console.log('Logged out successfully')
+          setIsLoading(false);
+          setSubmitted(true);
+        })
     };
-
     if (submitted) {
       return <SignUp />;
     }
@@ -24,7 +29,7 @@ const Profile = () => {
     const handleDeleteAccount = () => {
         setIsLoading(true);
 
-        fetch('http://localhost:8000/recipes/id', {
+        fetch('api', {
             method: 'DELETE',
         }).then(() => {
             console.log('Account deleted successfully')
@@ -32,7 +37,6 @@ const Profile = () => {
             setSubmitted(true);
            })
     };
-
     if (submitted) {
       return <SignUp />;
     }

@@ -1,12 +1,12 @@
 import './App.css';
-import Navigation from './compoents/navbar/Navigation';
+import SignUp from './compoents/form/Sigin-up';
 
 
 function App() {
   return (
     <div>
+      <SignUp />
 
-     <Navigation />
     </div>
   );
 }

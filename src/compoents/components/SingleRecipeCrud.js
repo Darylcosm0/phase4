@@ -52,9 +52,6 @@ function SingleRecipeCrud(props) {
                     <button onClick={handleUpdate}>Update</button>
                     <DeleteRecipe recipe={store.recipe}/>
                 </div>
-                <div>
-                    <RemoveLabel/>
-                </div>
             </div>
         </div>
     );

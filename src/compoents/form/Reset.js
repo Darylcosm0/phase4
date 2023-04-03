@@ -4,6 +4,7 @@ import Login from "./Login";
 function Reset() {
   const [reset, setReset] = useState("");
   const [email, setEmail] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
   const [loggedIn, setLoggedIn] = useState(false); // add loggedIn state
 
   const onLogin = (e) => {
@@ -14,7 +15,7 @@ function Reset() {
   const handleReset = async (e) => {
     e.preventDefault();
   
-    const response = await fetch('/api/reset-password', {
+    const response = await fetch('https://phase-4-project-recipes-backend.onrender.com/password_resets/validate_token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password: reset }),
@@ -57,6 +58,15 @@ function Reset() {
           className="form-control"
           value={reset}
           onChange={(e) => setReset(e.target.value)}
+        />
+        <label htmlFor="inputPassword" className="form-lable">
+          Confirm Password
+        </label>
+        <input
+          type="password"
+          className="form-control"
+          value={confirmPass}
+          onChange={(e) => setConfirmPass(e.target.value)}
         />
         <button className="btn btn-primary" onClick={onLogin}>
           Reset Password

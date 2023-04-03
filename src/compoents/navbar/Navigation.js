@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import PrivateRoute from "./Private";
 import Nav from "./Nav";
 import Home from "./Home";
 import About from "./About";
@@ -13,7 +14,10 @@ import Register from "../form/Register"
 import SingleRecipeAll from "../components/SingleRecipeAll";
 import SingleRecipeCrud from "../components/SingleRecipeCrud";
 
-function Navigation() {
+function Navigation() {    
+
+    const [authenticated, setAuthenticated] = useState(false);
+
     return (  
         <section>
             <Router>
@@ -31,24 +35,40 @@ function Navigation() {
                     <Route path="/about" exact>
                         <About />
                     </Route>
-                    <Route path="/recipes" exact>
-                        <Recipes />
-                    </Route>
-                    <Route path="/mylist" exact>
-                        <Personal />
-                    </Route>
-                    <Route path="/new" exact>
-                        <NewRecipe />
-                    </Route>
-                    <Route path="/profile" exact>
-                        <Profile />
-                    </Route>
-                    <Route path="/recipes/:id">
-                        <SingleRecipeAll />
-                    </Route>
-                    <Route path="/user/:id">
-                        <SingleRecipeCrud />
-                    </Route>
+                    <PrivateRoute
+                        path="/recipes"
+                        exact
+                        component={Recipes}
+                        authenticated={authenticated}
+                    />
+                    <PrivateRoute
+                        path="/mylist"
+                        exact
+                        component={Personal}
+                        authenticated={authenticated}
+                    />
+                    <PrivateRoute
+                        path="/new"
+                        exact
+                        component={NewRecipe}
+                        authenticated={authenticated}
+                    />
+                    <PrivateRoute
+                        path="/profile"
+                        exact
+                        component={Profile}
+                        authenticated={authenticated}
+                    />
+                    <PrivateRoute
+                        path="/recipes/:id"
+                        component={SingleRecipeAll}
+                        authenticated={authenticated}
+                    />
+                    <PrivateRoute
+                        path="/user/:id"
+                        component={SingleRecipeCrud}
+                        authenticated={authenticated}
+                    />
                     <Route path="/update/user">
                         <Update />
                     </Route>

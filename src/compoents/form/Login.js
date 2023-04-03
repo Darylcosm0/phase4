@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { userStore } from "../../data/RecipesStore";
 import axios from "axios";
+import { useStore } from "zustand"
 
 function Login(props) {
+  const store = useStore(userStore);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,11 +20,12 @@ function Login(props) {
       email: email,
       password: password
     }).then(r => {
-      userStore.changeUser(r.data.user);
+      store.changeUser(r.data.user);
       props.toggleForm("navigation");
       console.log("welcome");
     }).catch(error => {
       alert("Error: " + error.message);
+      console.log("error")
     });
   }
   

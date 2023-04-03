@@ -9,9 +9,11 @@ function AddAllergy(props) {
   const currentUser = useStore(userStore);
   const [allergy, setAllergy] = useState({ name: "", user_id: undefined });
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     setAllergy({
       ...allergy,
       user_id: currentUser.user.id
@@ -24,6 +26,7 @@ function AddAllergy(props) {
       .then(() => {
         console.log("Allergies added successfully");
         setSubmitted(true);
+        setIsLoading(true);
       });
   }
 
@@ -40,7 +43,8 @@ function AddAllergy(props) {
           setAllergy({ ...allergy, name: e.target.value });
         }}
       ></input>
-      <button type="submit">Add allergy</button>
+      { !isLoading && <button type="submit">Add allergy</button>}
+      { isLoading && <button type="submit" disabled>Add...</button>}
     </form>
   );
 }

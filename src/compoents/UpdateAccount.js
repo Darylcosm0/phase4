@@ -7,12 +7,12 @@ const Update = () => {
     const [newPass, setNewPass] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-
+    const [ confirmPass, setConfirmPass ] = useState('');
 
     const handleUpdate = (e) => {
         e.preventDefault();
         setIsLoading(true)
-        fetch('http://localhost:8000/recipes', {
+        fetch('https://phase-4-project-recipes-backend.onrender.com/password_resets/validate_token', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,6 +52,16 @@ const Update = () => {
                         placeholder="Enter new password"
                         value={newPass}
                         onChange={(e) => setNewPass(e.target.value)}/>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label" htmlFor="email">Confirm Password</label>
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        id="password" 
+                        placeholder="Enter new password"
+                        value={confirmPass}
+                        onChange={(e) => setConfirmPass(e.target.value)}/>
                 </div>
                 { !isLoading && <button type="submit" className="btn btn-outline-info" onClick={handleUpdate}>Submit</button> }
                 { isLoading && <button type="submit" className="btn btn-outline-info" disabled>Submit......</button> }
