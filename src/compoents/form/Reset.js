@@ -13,9 +13,23 @@ function Reset() {
 
   const handleReset = async (e) => {
     e.preventDefault();
-    // code for resetting the password
+  
+    const response = await fetch('/api/reset-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password: reset }),
+    });
+  
+    if (response.ok) {
+      // Password reset successful
+      setLoggedIn(true);
+    } else {
+      // Password reset failed
+      const error = await response.json();
+      console.error(error.message);
+    }
   };
-
+  
   if (loggedIn) {
     // render the Navigation component if the user is logged in
     return <Login />;
