@@ -3,10 +3,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useStore } from "zustand";
 import { singleRecipeStore } from "../../data/RecipesStore";
+import UpdateRecipe from "./UpdateRecipe";
 
 function AddLabel({ recipe_id }) {
-    const singleStore = useStore(singleRecipeStore)
+  const singleStore = useStore(singleRecipeStore);
   const [label, setLabel] = useState("1");
+  const [add, setAdd] = useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
     axios
@@ -14,7 +17,7 @@ function AddLabel({ recipe_id }) {
         "https://phase-4-project-recipes-backend.onrender.com/recipe_labels",
         {
           recipe_id: recipe_id,
-          label_id:parseInt(label),
+          label_id: parseInt(label),
         }
       )
       .then(
@@ -25,6 +28,16 @@ function AddLabel({ recipe_id }) {
           .then((r) => singleStore.changeSingleRecipe(r.data))
       );
   }
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    setAdd(true);
+  };
+
+  if (add) {
+    return <UpdateRecipe recipe={singleStore.recipe} />;
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <select onChange={(e) => setLabel(e.target.value)}>
@@ -39,8 +52,9 @@ Label.create(name:"Mildly Spicy",color:"blue")
 Label.create(name:"Moderately Spicy",color:"green")
 Label.create(name:"Alcoholic",color:"pink")
 Label.create(name:"Caffeinated",color:"brown") */}
+
       </select>
-      <button>Add</button>
+      <button onClick={handleAdd}>Add</button>
     </form>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import ListRecipe from "./ListRecipe";
 import axios from "axios";
@@ -7,7 +6,6 @@ import Search from "../Search";
 import Sort from "../form/Sort";
 import { useStore } from "zustand";
 import { recipesStore} from "../../data/RecipesStore";
-import TotalCalories from "./TotalCalories";
 import { Link } from "react-router-dom";
 
 function AllRecipes(props) {
@@ -20,7 +18,13 @@ function AllRecipes(props) {
       <Search store={store}/>
       <Sort store={store}/>
       <h1>All recipes</h1>
-      <ListRecipe recipes={store.recipes} />
+      <Link to={`/recipes/${store.id}`}>
+          <div className="card" style={{width: "18rem"}}>
+            <div className="card-body">
+              <h5 className="card-title"><ListRecipe recipes={store.recipes} /></h5>
+            </div>
+          </div>
+      </Link>
     </>
   );
 }

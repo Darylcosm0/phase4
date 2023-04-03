@@ -1,17 +1,18 @@
-import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { singleRecipeStore } from "../../data/RecipesStore";
 import axios from 'axios';
-import { userStore } from '../../data/RecipesStore';
 import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
+import AddLabel from "./AddLabel"
 
 
 function AddIngredient({recipe}) {
     // :name,:recipe_id,:quantity,:measurement_unit,:calories
     const store = useStore(recipesStore)
     const singleStore = useStore(singleRecipeStore)
+    const [next, setNext] = useState();
+    const [isLoading, setIsLoading] = useState();
     const [ingredient,setIngredient] = useState({
     name: "",
     quantity:undefined,
@@ -36,6 +37,15 @@ function AddIngredient({recipe}) {
         console.log("I've run")
       )
         )
+    }
+
+    const handleNext = (e) => {
+      e.preventDefault();
+      setNext(true);
+      setIsLoading(true);
+    };
+    if (next) {
+      return <AddLabel recipe_id={recipe.id}/> 
     }
 
   return (
@@ -63,7 +73,8 @@ function AddIngredient({recipe}) {
              })
         
     }}/>
-    <button type="submit">Add ingredient</button>
+    { !isLoading && <button type="submit" onClick={handleNext}>Next</button>}
+    { isLoading && <button type="submit" disabled>Progressing...</button>}
     </form>
   );
 }

@@ -7,7 +7,7 @@ function RemoveLabel({recipe_id,label_id}) {
     const singleStore = useStore(singleRecipeStore)
     return (
        <button onClick={()=>{
-        axios.delete(`https://phase-4-project-recipes-backend.onrender.com/recipe_labels`,{
+        axios.post(`https://phase-4-project-recipes-backend.onrender.com/recipe_label`,{
         recipe_id:recipe_id,
         label_id:label_id
         }).then(

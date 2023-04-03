@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import RecipeWarning from './RecipeWarning';
 import RecipeLabels from './RecipeLabels';
@@ -15,29 +14,47 @@ import { currentRecipeStore } from '../../data/RecipesStore';
 function SingleRecipeAll(props) {
     const store = useStore(singleRecipeStore)
     const currentRecipe = useStore(currentRecipeStore)
+    const [comment, setComment] = useState(false);
+
     useEffect(() =>{
     axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
     r => store.changeSingleRecipe(r.data)
     )
     },[currentRecipe])
+
+
+    const handleComment = (e) => {
+        e.preventDefault();
+        setComment(true);
+        
+    }
+
+    if (comment) {
+        return <AddReview recipe={store.recipe}/>
+    }
+
     return (
         <div>
-            <h3>{store.recipe.title}</h3>
-            <RecipeWarning recipe={store.recipe}/>
-            <RecipeLabels recipe={store.recipe}/>
-            <img src={store.recipe.recipe_image}/>
-            <p>{store.recipe.description}</p>
-            <RecipeIngredients recipe={store.recipe}/>
-            <p>{store.recipe.instructions}</p>
-            <p>{store.recipe.cuisine}</p>
-            <TotalCalories/>
-            <div>
-                <RecipeReviews recipe={store.recipe}/>
+            <article>
+                    <img src={store.recipe.recipe_image} alt='recipe display'/>
+                    <RecipeLabels recipe={store.recipe}/>
+                    <h3>{store.recipe.title}</h3>
+                    <p>{store.recipe.cuisine}</p>
+                    <RecipeWarning recipe={store.recipe}/>
+                    <p>{store.recipe.description}</p>
+                    <RecipeIngredients recipe={store.recipe}/>
+                    <p>{store.recipe.instructions}</p>
+                <TotalCalories/>
+            </article>
                 <div>
-                    <AddReview recipe={store.recipe}/>
+                    <div>
+                    <RecipeReviews recipe={store.recipe}/>
+                    
+                            <div>
+                                <button onClick={handleComment}>Leave a comment</button>
+                            </div>
+                    </div> 
                 </div>
-            </div>
-
         </div>
     );
 }
