@@ -310,46 +310,6 @@ button {
 }
 
 button:hover {
-  background-color: #5df322;
+  background-color: #055a53;
 }
 
-/* sort js */
-/* Select styles */
-select {
-  display: block;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.3);
-}
-
-option {
-  font-size: 1rem;
-}
-
-/* search js */
-/* Input styles */
-input {
-  display: block;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  width: 100%;
-  max-width: 400px;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.3);
-}

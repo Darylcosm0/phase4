@@ -28,12 +28,14 @@ function Home() {
             <div className="column-1">
               {/* Column component */}
 
+              // eslint-disable-next-line jsx-a11y/iframe-has-title
               <iframe
                 src="https://assets.pinterest.com/ext/embed.html?id=579838520787778455"
                 height="900"
-                width="450">
-                  
-                </iframe>
+                width="450"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
 
               <h3>Appetizers</h3>
               <p>

@@ -336,20 +336,3 @@ option {
 }
 
 /* search js */
-/* Input styles */
-input {
-  display: block;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  width: 100%;
-  max-width: 400px;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.3);
-}

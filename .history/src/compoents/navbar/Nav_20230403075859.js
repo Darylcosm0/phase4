@@ -8,7 +8,7 @@ function Nav() {
 
   return (
     <nav className="navbar">
-      <h3 className="logo">recipe🌿  🧑🏼‍🍳  </h3>
+      <h3 className="logo">tasty 🧑🏼‍🍳 👨🏼‍🍳 </h3>
         <ul className={nav ? 'nav-links' : 'nav-link'} onClick={() => setNav(false)}>
             <Link to='/' className="home">
                 <li>Home</li>

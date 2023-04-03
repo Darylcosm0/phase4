@@ -28,12 +28,7 @@ function Home() {
             <div className="column-1">
               {/* Column component */}
 
-              <iframe
-                src="https://assets.pinterest.com/ext/embed.html?id=579838520787778455"
-                height="900"
-                width="450">
-                  
-                </iframe>
+              <iframe src="https://assets.pinterest.com/ext/embed.html?id=576601558559996576"></iframe>
 
               <h3>Appetizers</h3>
               <p>

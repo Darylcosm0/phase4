@@ -31,9 +31,10 @@ function Home() {
               <iframe
                 src="https://assets.pinterest.com/ext/embed.html?id=579838520787778455"
                 height="900"
-                width="450">
-                  
-                </iframe>
+                width="450"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
 
               <h3>Appetizers</h3>
               <p>
