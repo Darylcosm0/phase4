@@ -11,6 +11,7 @@ import Personal from "./PersonalList"
 import Login from "../form/Login"
 import Register from "../form/Register"
 import SingleRecipeAll from "../components/SingleRecipeAll";
+import SingleRecipeCrud from "../components/SingleRecipeCrud";
 
 function Navigation() {
     return (  
@@ -44,6 +45,9 @@ function Navigation() {
                     </Route>
                     <Route path="/recipes/:id">
                         <SingleRecipeAll />
+                    </Route>
+                    <Route path="/user/:id">
+                        <SingleRecipeCrud />
                     </Route>
                     <Route path="/update/user">
                         <Update />

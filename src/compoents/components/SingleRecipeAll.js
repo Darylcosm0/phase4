@@ -48,10 +48,11 @@ function SingleRecipeAll(props) {
             </article>
                 <div>
                     <div>
+                    <RecipeReviews recipe={store.recipe}/>
+                    
                             <div>
                                 <button onClick={handleComment}>Leave a comment</button>
                             </div>
-                        <RecipeReviews recipe={store.recipe}/>
                     </div> 
                 </div>
         </div>
