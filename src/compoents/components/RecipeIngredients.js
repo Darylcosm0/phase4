@@ -19,9 +19,8 @@ function RecipeIngredients({recipe}) {
       return(  currentIngredients.map((ingredient)=>{
         return <div key={ingredient.id}>
         <div>{ingredient.name}</div>
-        <p>Calories:{ingredient.calories * ingredient.quantity}</p>
-        
-        <RemoveIngredient id={ingredient.id}/>
+        <p>Calories:{ingredient.calories * ingredient.quantity}</p>     
+        <RemoveIngredient id={ingredient.id} recipe_id={recipe.id}/>
         </div>
         
       })

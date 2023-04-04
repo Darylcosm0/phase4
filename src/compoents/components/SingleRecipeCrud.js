@@ -17,10 +17,14 @@ function SingleRecipeCrud(props) {
     const [submit, setSubmit] = useState();
 
     useEffect(() =>{
-        
-        axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe.id}`).then(
-            r => store.changeSingleRecipe(r.data)
-        )
+    if(currentRecipe.recipe != undefined)
+    { axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe.id}`).then(
+    r => store.changeSingleRecipe(r.data)
+    )}
+    else{
+    console.log(currentRecipe)
+    console.log("unset")
+     }
     },[currentRecipe])
 
     // console.log(store.recipe)
