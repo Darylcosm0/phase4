@@ -15,9 +15,11 @@ function AllRecipes(props) {
   }, [])
   return (
     <>
+     
+      <h1>.........</h1>
+      <h1>All recipes</h1>
       <Search store={store}/>
       <Sort store={store}/>
-      <h1>All recipes</h1>
       <Link to={`/recipes/${store.id}`}>
           <div className="card" style={{width: "18rem"}}>
             <div className="card-body">

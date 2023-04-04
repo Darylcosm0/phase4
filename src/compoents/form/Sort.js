@@ -6,7 +6,7 @@ import { useStore } from 'zustand';
 import { recipesStore } from '../../data/RecipesStore';
 
 function Sort(props) {
- const [sort,setSort] = useState("new")
+ const [sort,setSort] = useState("old")
  const store = useStore(recipesStore)
  useEffect(()=>{
   axios.get(`https://phase-4-project-recipes-backend.onrender.com/sort-${sort}`).then(r => store.changeRecipes(r.data))
@@ -15,8 +15,8 @@ function Sort(props) {
     return (
        <div>
         <select onChange={(e) =>{setSort(e.target.value)}}>
-            <option value="old">Oldest</option>
-            <option value="new">Newest</option>
+            <option value="old">Newest</option>
+            <option value="new">Oldest</option>
         </select>
        </div>
     );
