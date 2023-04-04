@@ -71,9 +71,7 @@ function NewRecipe(){
       setCuisine(e.target.value)
       }}></input>
        <input type="url" placeholder="Image(optional)" onChange={(e)=>{
-      setRecipeData({
-        ...recipeData,recipe_image:e.target.value
-      })
+      setRecipeImage(e.target.value)
       }}></input>
        { !isLoading && <button type="submit">Create Recipe</button>}
       { isLoading && <button type="submit" disabled>Creating...</button>}
