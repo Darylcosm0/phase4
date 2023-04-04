@@ -8,7 +8,7 @@ function ListRecipe({recipes}) {
     return (   
      recipes.map((recipe)=>{
       return <div key={recipe.id} onClick={()=>{
-        thisRecipe.changeCurrentRecipe(recipe.id)
+        thisRecipe.changeCurrentRecipe(recipe)
       }}>
       <div className='card'>
         <div className='card-body'>

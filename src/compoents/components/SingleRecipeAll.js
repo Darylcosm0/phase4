@@ -17,9 +17,13 @@ function SingleRecipeAll(props) {
     const [comment, setComment] = useState(false);
 
     useEffect(() =>{
-    axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
+    if(currentRecipe.recipe != undefined){ 
+    axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe.id}`).then(
     r => store.changeSingleRecipe(r.data)
-    )
+    )}else{
+        console.log(currentRecipe)
+        console.log("unset")
+    }
     },[currentRecipe])
 
 
