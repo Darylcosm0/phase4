@@ -17,7 +17,8 @@ function SingleRecipeCrud(props) {
     const [submit, setSubmit] = useState();
 
     useEffect(() =>{
-        axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe}`).then(
+        
+        axios.get(`https://phase-4-project-recipes-backend.onrender.com/recipes/${currentRecipe.recipe.id}`).then(
             r => store.changeSingleRecipe(r.data)
         )
     },[currentRecipe])
@@ -40,7 +41,7 @@ function SingleRecipeCrud(props) {
                 <p>{store.recipe.cuisine}</p>
                 <RecipeWarning recipe={store.recipe}/>
                 <p>{store.recipe.description}</p>
-                <AddIngredient recipe={store.recipe}/> 
+                <AddIngredient recipe={store.recipe} recipe_id={store.recipe.id}/> 
                 <RecipeIngredients recipe={store.recipe}/>
                 <p>{store.recipe.instructions}</p>
                 <TotalCalories ingredients={store.recipe.ingredients}/>

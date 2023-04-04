@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { currentRecipeStore } from "../../data/RecipesStore";
+import { currentRecipeStore, singleRecipeStore } from "../../data/RecipesStore";
 import axios from "axios";
 import { useStore } from "zustand";
 import { recipesStore } from "../../data/RecipesStore";
 import AddLabel from "./AddLabel";
 
-function AddIngredient({ recipe }) {
+function AddIngredient({ recipe, recipe_id }) {
   // :name,:recipe_id,:quantity,:measurement_unit,:calories
   const store = useStore(recipesStore);
   const singleStore = useStore(currentRecipeStore);
@@ -50,7 +50,7 @@ function AddIngredient({ recipe }) {
           .then((r) => store.changeRecipes(r.data)),
         axios
           .get(
-            `https://phase-4-project-recipes-backend.onrender.com/recipes/${recipeId}`
+            `https://phase-4-project-recipes-backend.onrender.com/recipes/${recipe_id}`
           )
           .then(
             (r) => singleStore.changeCurrentRecipe(r.data),

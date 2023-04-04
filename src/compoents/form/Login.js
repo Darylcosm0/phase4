@@ -34,7 +34,7 @@ function Login() {
   }
   
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     axios.post("https://phase-4-project-recipes-backend.onrender.com/login", {
       email: email,
       password: password
